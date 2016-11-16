@@ -13,6 +13,8 @@
 		78872A961DDCBF3C00038A55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78872A941DDCBF3C00038A55 /* LaunchScreen.storyboard */; };
 		78872AA11DDCBF3C00038A55 /* NASAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78872AA01DDCBF3C00038A55 /* NASAppTests.swift */; };
 		78872AAC1DDCBF6400038A55 /* TODO.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 78872AAB1DDCBF6400038A55 /* TODO.rtf */; };
+		78872AAE1DDCC09A00038A55 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78872AAD1DDCC09A00038A55 /* NetworkManager.swift */; };
+		78872AB21DDCC1FF00038A55 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78872AB11DDCC1FF00038A55 /* Nuke.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		78872AA01DDCBF3C00038A55 /* NASAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAppTests.swift; sourceTree = "<group>"; };
 		78872AA21DDCBF3C00038A55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		78872AAB1DDCBF6400038A55 /* TODO.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; name = TODO.rtf; path = ../TODO.rtf; sourceTree = "<group>"; };
+		78872AAD1DDCC09A00038A55 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		78872AB11DDCC1FF00038A55 /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nuke.framework; path = Carthage/Build/iOS/Nuke.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78872AB21DDCC1FF00038A55 /* Nuke.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +67,7 @@
 				78872A8A1DDCBF3C00038A55 /* NASApp */,
 				78872A9F1DDCBF3C00038A55 /* NASAppTests */,
 				78872A891DDCBF3C00038A55 /* Products */,
+				78872AB01DDCC1FF00038A55 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				78872A8B1DDCBF3C00038A55 /* AppDelegate.swift */,
+				78872AAD1DDCC09A00038A55 /* NetworkManager.swift */,
 				78872A8F1DDCBF3C00038A55 /* Main.storyboard */,
 				78872A921DDCBF3C00038A55 /* Assets.xcassets */,
 				78872A941DDCBF3C00038A55 /* LaunchScreen.storyboard */,
@@ -96,6 +103,14 @@
 			path = NASAppTests;
 			sourceTree = "<group>";
 		};
+		78872AB01DDCC1FF00038A55 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				78872AB11DDCC1FF00038A55 /* Nuke.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,6 +121,7 @@
 				78872A841DDCBF3C00038A55 /* Sources */,
 				78872A851DDCBF3C00038A55 /* Frameworks */,
 				78872A861DDCBF3C00038A55 /* Resources */,
+				78872AAF1DDCC1DE00038A55 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -197,11 +213,29 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		78872AAF1DDCC1DE00038A55 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Nuke.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		78872A841DDCBF3C00038A55 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78872AAE1DDCC09A00038A55 /* NetworkManager.swift in Sources */,
 				78872A8C1DDCBF3C00038A55 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -342,6 +376,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = DEYT8Z7L38;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = NASApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.thedan84.NASApp;
@@ -356,6 +394,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = DEYT8Z7L38;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = NASApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.thedan84.NASApp;
