@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		78872A8C1DDCBF3C00038A55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78872A8B1DDCBF3C00038A55 /* AppDelegate.swift */; };
-		78872A8E1DDCBF3C00038A55 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78872A8D1DDCBF3C00038A55 /* ViewController.swift */; };
 		78872A911DDCBF3C00038A55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78872A8F1DDCBF3C00038A55 /* Main.storyboard */; };
 		78872A931DDCBF3C00038A55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78872A921DDCBF3C00038A55 /* Assets.xcassets */; };
 		78872A961DDCBF3C00038A55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78872A941DDCBF3C00038A55 /* LaunchScreen.storyboard */; };
 		78872AA11DDCBF3C00038A55 /* NASAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78872AA01DDCBF3C00038A55 /* NASAppTests.swift */; };
+		78872AAC1DDCBF6400038A55 /* TODO.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 78872AAB1DDCBF6400038A55 /* TODO.rtf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,7 +28,6 @@
 /* Begin PBXFileReference section */
 		78872A881DDCBF3C00038A55 /* NASApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NASApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78872A8B1DDCBF3C00038A55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		78872A8D1DDCBF3C00038A55 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		78872A901DDCBF3C00038A55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		78872A921DDCBF3C00038A55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		78872A951DDCBF3C00038A55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +35,7 @@
 		78872A9C1DDCBF3C00038A55 /* NASAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NASAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		78872AA01DDCBF3C00038A55 /* NASAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAppTests.swift; sourceTree = "<group>"; };
 		78872AA21DDCBF3C00038A55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		78872AAB1DDCBF6400038A55 /* TODO.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; name = TODO.rtf; path = ../TODO.rtf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,11 +78,11 @@
 			isa = PBXGroup;
 			children = (
 				78872A8B1DDCBF3C00038A55 /* AppDelegate.swift */,
-				78872A8D1DDCBF3C00038A55 /* ViewController.swift */,
 				78872A8F1DDCBF3C00038A55 /* Main.storyboard */,
 				78872A921DDCBF3C00038A55 /* Assets.xcassets */,
 				78872A941DDCBF3C00038A55 /* LaunchScreen.storyboard */,
 				78872A971DDCBF3C00038A55 /* Info.plist */,
+				78872AAB1DDCBF6400038A55 /* TODO.rtf */,
 			);
 			path = NASApp;
 			sourceTree = "<group>";
@@ -181,6 +181,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78872AAC1DDCBF6400038A55 /* TODO.rtf in Resources */,
 				78872A961DDCBF3C00038A55 /* LaunchScreen.storyboard in Resources */,
 				78872A931DDCBF3C00038A55 /* Assets.xcassets in Resources */,
 				78872A911DDCBF3C00038A55 /* Main.storyboard in Resources */,
@@ -201,7 +202,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				78872A8E1DDCBF3C00038A55 /* ViewController.swift in Sources */,
 				78872A8C1DDCBF3C00038A55 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -347,6 +347,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = me.thedan84.NASApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -360,6 +361,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = me.thedan84.NASApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
