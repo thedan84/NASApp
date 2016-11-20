@@ -8,6 +8,33 @@
 
 import Foundation
 
+typealias JSON = [String: Any]
+typealias JSONArray = [JSON]
+
 struct NetworkManager {
     
+    func request(endpoint: Endpoint, parameters: JSON?, completion: @escaping (Result) -> Void) {
+        guard let url = endpoint.urlString(with: parameters) else { return }
+        
+        let session = URLSession(configuration: .default)
+        
+        let request = URLRequest(url: url)
+        
+        let task = session.dataTask(with: request) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+            } else if let data = data {
+                guard let json = try? JSONSerialization.jsonObject(with: data, options: []) else { return }
+                OperationQueue.main.addOperation {
+                    switch json {
+                    case let object as JSON: completion(.success(object))
+//                    case let object as JSONArray: completion(.success(object))
+                    default: break
+                    }
+                }
+            }
+        }
+        
+        task.resume()
+    }
 }

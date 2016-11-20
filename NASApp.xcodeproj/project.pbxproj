@@ -16,6 +16,12 @@
 		78872AAE1DDCC09A00038A55 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78872AAD1DDCC09A00038A55 /* NetworkManager.swift */; };
 		78872AB21DDCC1FF00038A55 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78872AB11DDCC1FF00038A55 /* Nuke.framework */; };
 		78872AB41DDCC95600038A55 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78872AB31DDCC95600038A55 /* Endpoint.swift */; };
+		78DFBB841DE1B61600ED5715 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DFBB831DE1B61600ED5715 /* Photo.swift */; };
+		78DFBB861DE1B61C00ED5715 /* Manifest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DFBB851DE1B61C00ED5715 /* Manifest.swift */; };
+		78DFBB881DE1B7B000ED5715 /* PhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DFBB871DE1B7B000ED5715 /* PhotoManager.swift */; };
+		78DFBB8C1DE1B86900ED5715 /* NASAError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DFBB8B1DE1B86900ED5715 /* NASAError.swift */; };
+		78DFBB8E1DE1D11200ED5715 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DFBB8D1DE1D11200ED5715 /* Result.swift */; };
+		78DFBB901DE1D4C900ED5715 /* Geocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DFBB8F1DE1D4C900ED5715 /* Geocoder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +48,12 @@
 		78872AAD1DDCC09A00038A55 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		78872AB11DDCC1FF00038A55 /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nuke.framework; path = Carthage/Build/iOS/Nuke.framework; sourceTree = "<group>"; };
 		78872AB31DDCC95600038A55 /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		78DFBB831DE1B61600ED5715 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		78DFBB851DE1B61C00ED5715 /* Manifest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manifest.swift; sourceTree = "<group>"; };
+		78DFBB871DE1B7B000ED5715 /* PhotoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoManager.swift; sourceTree = "<group>"; };
+		78DFBB8B1DE1B86900ED5715 /* NASAError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NASAError.swift; sourceTree = "<group>"; };
+		78DFBB8D1DE1D11200ED5715 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		78DFBB8F1DE1D4C900ED5715 /* Geocoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geocoder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,8 +98,14 @@
 			isa = PBXGroup;
 			children = (
 				78872A8B1DDCBF3C00038A55 /* AppDelegate.swift */,
+				78DFBB871DE1B7B000ED5715 /* PhotoManager.swift */,
 				78872AAD1DDCC09A00038A55 /* NetworkManager.swift */,
+				78DFBB8F1DE1D4C900ED5715 /* Geocoder.swift */,
+				78DFBB831DE1B61600ED5715 /* Photo.swift */,
+				78DFBB851DE1B61C00ED5715 /* Manifest.swift */,
 				78872AB31DDCC95600038A55 /* Endpoint.swift */,
+				78DFBB8D1DE1D11200ED5715 /* Result.swift */,
+				78DFBB8B1DE1B86900ED5715 /* NASAError.swift */,
 				78872A8F1DDCBF3C00038A55 /* Main.storyboard */,
 				78872A921DDCBF3C00038A55 /* Assets.xcassets */,
 				78872A941DDCBF3C00038A55 /* LaunchScreen.storyboard */,
@@ -238,9 +256,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78DFBB881DE1B7B000ED5715 /* PhotoManager.swift in Sources */,
+				78DFBB841DE1B61600ED5715 /* Photo.swift in Sources */,
 				78872AAE1DDCC09A00038A55 /* NetworkManager.swift in Sources */,
+				78DFBB861DE1B61C00ED5715 /* Manifest.swift in Sources */,
 				78872AB41DDCC95600038A55 /* Endpoint.swift in Sources */,
 				78872A8C1DDCBF3C00038A55 /* AppDelegate.swift in Sources */,
+				78DFBB8E1DE1D11200ED5715 /* Result.swift in Sources */,
+				78DFBB901DE1D4C900ED5715 /* Geocoder.swift in Sources */,
+				78DFBB8C1DE1B86900ED5715 /* NASAError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,6 +484,7 @@
 				78872AA71DDCBF3C00038A55 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		78872AA81DDCBF3C00038A55 /* Build configuration list for PBXNativeTarget "NASAppTests" */ = {
 			isa = XCConfigurationList;
@@ -468,6 +493,7 @@
 				78872AAA1DDCBF3C00038A55 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

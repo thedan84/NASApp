@@ -13,9 +13,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    let manager = PhotoManager()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+//        manager.fetchLatestMarsImages { (photoStrings, error) in
+//            if let photos = photoStrings {
+//                for photo in photos {
+//                    print(photo)
+//                }
+//            }
+//        }
+        
+        manager.fetchEarthImage(for: "Jungbluthstr. 11") { photoString, error in
+            if let string = photoString {
+                print(string)
+            }
+        }
+        
         return true
     }
 
