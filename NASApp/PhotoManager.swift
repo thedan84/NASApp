@@ -12,6 +12,7 @@ struct PhotoManager {
     
     let networkManager = NetworkManager()
     let geocoder = Geocoder()
+    let contactManager = ContactManager()
     
     func fetchLatestMarsImages(completion: @escaping ([String]?, Error?) -> Void) {
         networkManager.request(endpoint: .manifest, parameters: nil) { result in
@@ -54,6 +55,24 @@ struct PhotoManager {
                 
                 case .failure(let error): completion(nil, error)
                 }
+            }
+        }
+    }
+    
+    func fetchImage(for name: String, completion: @escaping (String?, Error?) -> Void) {
+        contactManager.searchLocationForContact(with: name) { location, error in
+            
+            guard let location = location else { return }
+            
+            self.networkManager.request(endpoint: .earth, parameters: ["latitude": location.coordinate.latitude, "longitude": location.coordinate.longitude]) { result in
+                switch result {
+                case .success(let object):
+                    if let json = object?["url"] as? String {
+                        completion(json, nil)
+                    }
+                case .failure(let error): completion(nil, error)
+                }
+                
             }
         }
     }

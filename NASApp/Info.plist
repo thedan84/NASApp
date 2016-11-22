@@ -41,5 +41,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSContactsUsageDescription</key>
+	<string>NASApp needs access to your contacts</string>
 </dict>
 </plist>

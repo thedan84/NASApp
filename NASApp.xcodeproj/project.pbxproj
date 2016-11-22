@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7826924A1DE4C2DF00E4FBDC /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 782692491DE4C2DF00E4FBDC /* Contacts.framework */; };
 		78872A8C1DDCBF3C00038A55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78872A8B1DDCBF3C00038A55 /* AppDelegate.swift */; };
 		78872A911DDCBF3C00038A55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78872A8F1DDCBF3C00038A55 /* Main.storyboard */; };
 		78872A931DDCBF3C00038A55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78872A921DDCBF3C00038A55 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 		78DFBB881DE1B7B000ED5715 /* PhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DFBB871DE1B7B000ED5715 /* PhotoManager.swift */; };
 		78DFBB8E1DE1D11200ED5715 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DFBB8D1DE1D11200ED5715 /* Result.swift */; };
 		78DFBB901DE1D4C900ED5715 /* Geocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DFBB8F1DE1D4C900ED5715 /* Geocoder.swift */; };
+		78FF86BF1DE4A5F7006745C2 /* ContactManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FF86BE1DE4A5F7006745C2 /* ContactManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		782692491DE4C2DF00E4FBDC /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
 		78872A881DDCBF3C00038A55 /* NASApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NASApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78872A8B1DDCBF3C00038A55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78872A901DDCBF3C00038A55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -48,6 +51,7 @@
 		78DFBB871DE1B7B000ED5715 /* PhotoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoManager.swift; sourceTree = "<group>"; };
 		78DFBB8D1DE1D11200ED5715 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		78DFBB8F1DE1D4C900ED5715 /* Geocoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geocoder.swift; sourceTree = "<group>"; };
+		78FF86BE1DE4A5F7006745C2 /* ContactManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7826924A1DE4C2DF00E4FBDC /* Contacts.framework in Frameworks */,
 				78872AB21DDCC1FF00038A55 /* Nuke.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -93,8 +98,9 @@
 			children = (
 				78872A8B1DDCBF3C00038A55 /* AppDelegate.swift */,
 				78DFBB871DE1B7B000ED5715 /* PhotoManager.swift */,
-				78872AAD1DDCC09A00038A55 /* NetworkManager.swift */,
 				78DFBB8F1DE1D4C900ED5715 /* Geocoder.swift */,
+				78FF86BE1DE4A5F7006745C2 /* ContactManager.swift */,
+				78872AAD1DDCC09A00038A55 /* NetworkManager.swift */,
 				78872AB31DDCC95600038A55 /* Endpoint.swift */,
 				78DFBB8D1DE1D11200ED5715 /* Result.swift */,
 				78872A8F1DDCBF3C00038A55 /* Main.storyboard */,
@@ -118,6 +124,7 @@
 		78872AB01DDCC1FF00038A55 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				782692491DE4C2DF00E4FBDC /* Contacts.framework */,
 				78872AB11DDCC1FF00038A55 /* Nuke.framework */,
 			);
 			name = Frameworks;
@@ -247,6 +254,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78FF86BF1DE4A5F7006745C2 /* ContactManager.swift in Sources */,
 				78DFBB881DE1B7B000ED5715 /* PhotoManager.swift in Sources */,
 				78872AAE1DDCC09A00038A55 /* NetworkManager.swift in Sources */,
 				78872AB41DDCC95600038A55 /* Endpoint.swift in Sources */,
