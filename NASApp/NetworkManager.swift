@@ -28,7 +28,6 @@ struct NetworkManager {
                 OperationQueue.main.addOperation {
                     switch json {
                     case let object as JSON: completion(.success(object))
-//                    case let object as JSONArray: completion(.success(object))
                     default: break
                     }
                 }

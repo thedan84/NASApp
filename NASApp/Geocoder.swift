@@ -12,11 +12,12 @@ import CoreLocation
 struct Geocoder {
     let geoCoder = CLGeocoder()
     
-    func geocodeAddress(for addressString: String, completion: @escaping (CLLocation?) -> Void) {
+    func geocodeAddress(for addressString: String, completion: @escaping (CLLocation?, Error?) -> Void) {
         geoCoder.geocodeAddressString(addressString) { placemarks, error in
-            
-            if let placemark = placemarks?.first, let location = placemark.location {
-                completion(location)
+            if error != nil {
+                completion(nil, error)
+            } else if let placemark = placemarks?.first, let location = placemark.location {
+                completion(location, nil)
             }
         }
     }

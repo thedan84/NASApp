@@ -14,17 +14,25 @@ struct PhotoManager {
     let geocoder = Geocoder()
     
     func fetchLatestMarsImages(completion: @escaping ([String]?, Error?) -> Void) {
-        networkManager.request(endpoint: .curiosityPhotos, parameters: ["sol": 1000]) { json in
-            switch json {
-            case .success(let object):
-                if let jsonArray = object?["photos"] as? JSONArray {
-                    var photoStrings = [String]()
-                    for json in jsonArray {
-                        if let photoString = json["img_src"] as? String {
-                            photoStrings.append(photoString)
+        networkManager.request(endpoint: .manifest, parameters: nil) { result in
+            switch result {
+            case .success(let json):
+                if let manifestDict = json?["photo_manifest"] as? JSON, let maxSol = manifestDict["max_sol"] as? Int {
+                    self.networkManager.request(endpoint: .curiosityPhotos, parameters: ["sol": maxSol]) { json in
+                        switch json {
+                        case .success(let object):
+                            if let jsonArray = object?["photos"] as? JSONArray {
+                                var photoStrings = [String]()
+                                for json in jsonArray {
+                                    if let photoString = json["img_src"] as? String {
+                                        photoStrings.append(photoString)
+                                    }
+                                }
+                                completion(photoStrings, nil)
+                            }
+                        case .failure(let error): completion(nil, error)
                         }
                     }
-                    completion(photoStrings, nil)
                 }
             case .failure(let error): completion(nil, error)
             }
@@ -32,7 +40,7 @@ struct PhotoManager {
     }
     
     func fetchEarthImage(for address: String, completion: @escaping (String?, Error?) -> Void) {
-        geocoder.geocodeAddress(for: address) { location in
+        geocoder.geocodeAddress(for: address) { location, error in
             
             guard let location = location else { return }
             
