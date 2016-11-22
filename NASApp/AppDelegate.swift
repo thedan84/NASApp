@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        manager.fetchImage(for: "Daniel") { imageString, error in
+        manager.fetchImage(for: "Alfred") { imageString, error in
             if error != nil {
                 print(error!)
             } else if let string = imageString {

@@ -12,16 +12,15 @@ import XCTest
 class NASAppTests: XCTestCase {
     
     let photoManager = PhotoManager()
-    var fakeAddress: String?
+    
+    let correctFakeAddress = "1465 5th Avenue, 10035 New York"
+    let correctFakeContactName = "Daniel"
+    
+    let incorrectFakeAddress = "jdflg"
+    let incorrectFakeContactName = "Alfred"
     
     override func setUp() {
         super.setUp()
-        
-        //Uncomment this line to test location search with a correct address
-//        fakeAddress = "1465 5th Avenue, 10035 New York"
-        
-        //Uncomment this line to test location search with an incorrect address
-        fakeAddress = "jdflg"
     }
     
     override func tearDown() {
@@ -30,24 +29,24 @@ class NASAppTests: XCTestCase {
     }
     
     func testMarsPhotoDownload() {
-        photoManager.fetchLatestMarsImages { (imageStrings, error) in
-            if error != nil {
-                print(error!)
-            } else {
-                XCTAssertNotNil(imageStrings != nil, "There are no strings being downloaded")
-            }
+        photoManager.fetchLatestMarsImages { (imageStrings, _) in
+            XCTAssertNotNil(imageStrings != nil, "There are no strings being downloaded")
         }
     }
     
-    func testLocationSearch() {
-        if let address = fakeAddress {
-            photoManager.fetchEarthImage(for: address, completion: { (photoString, error) in
-                if error != nil {
-                    XCTAssert(photoString == nil, "The address provided was correct")
-                } else {
-                    XCTAssert(error == nil, "The address provided was incorrect")
-                }
-            })
-        }
+    func testWorkingLocationSearch() {
+    
+    }
+    
+    func testWorkingContactSearch() {
+    
+    }
+    
+    func testFailingLocationSearch() {
+        
+    }
+    
+    func testFailingContactSearch() {
+        
     }
 }
