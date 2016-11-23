@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Contacts
 
 struct PhotoManager {
     
@@ -59,12 +60,11 @@ struct PhotoManager {
         }
     }
     
-    func fetchImage(for name: String, completion: @escaping (String?, Error?) -> Void) {
-        contactManager.searchLocationForContact(with: name) { location, error in
-            
+    func fetchImage(for contact: CNContact, completion: @escaping (String?, Error?) -> Void) {
+        contactManager.searchLocation(for: contact) { location, error in
             guard let location = location else { return }
             
-            self.networkManager.request(endpoint: .earth, parameters: ["latitude": location.coordinate.latitude, "longitude": location.coordinate.longitude]) { result in
+            self.networkManager.request(endpoint: .earth, parameters: ["latitude": location.coordinate.latitude, "longitude": location.coordinate.longitude]) { (result) in
                 switch result {
                 case .success(let object):
                     if let json = object?["url"] as? String {
@@ -72,7 +72,6 @@ struct PhotoManager {
                     }
                 case .failure(let error): completion(nil, error)
                 }
-                
             }
         }
     }

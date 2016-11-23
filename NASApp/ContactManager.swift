@@ -15,13 +15,13 @@ struct ContactManager {
     let contactStore = CNContactStore()
     let geocoder = Geocoder()
     
-    func requestAuthorization() {
+    fileprivate func requestAuthorization() {
         if CNContactStore.authorizationStatus(for: .contacts) == .notDetermined {
             contactStore.requestAccess(for: .contacts) { _ in }
         }
     }
     
-    fileprivate func searchContact(with name: String, completion: @escaping ([CNContact]?, Error?) -> Void) {
+    func searchContact(with name: String, completion: @escaping ([CNContact]?, Error?) -> Void) {
         requestAuthorization()
         
         let predicate: NSPredicate = CNContact.predicateForContacts(matchingName: name)
@@ -43,23 +43,14 @@ struct ContactManager {
         }
     }
     
-    func searchLocationForContact(with name: String, completion: @escaping (CLLocation?, Error?) -> Void) {
-        self.searchContact(with: name) { contacts, error in
-            if error != nil {
-                completion(nil, error)
-            } else if let contacts = contacts {
-                for contact in contacts {
-                    for address in contact.postalAddresses {
-                        let address = address.value
-                        let formattedAddress = CNPostalAddressFormatter.string(from: address, style: .mailingAddress)
-                        self.geocoder.geocodeAddress(for: formattedAddress) { location, error in
-                            if error != nil {
-                                completion(nil, error)
-                            } else if let location = location {
-                                completion(location, nil)
-                            }
-                        }
-                    }
+    func searchLocation(for contact: CNContact, completion: @escaping (CLLocation?, Error?) -> Void) {
+        if let streetAddress = contact.postalAddresses.first?.value {
+            let formattedAddress = CNPostalAddressFormatter.string(from: streetAddress, style: .mailingAddress)
+            self.geocoder.geocodeAddress(for: formattedAddress) { (location, error) in
+                if let error = error {
+                    completion(nil, error)
+                } else if let location = location {
+                    completion(location, nil)
                 }
             }
         }

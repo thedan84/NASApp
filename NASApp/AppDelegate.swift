@@ -14,15 +14,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     let manager = PhotoManager()
+    let contactManager = ContactManager()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        manager.fetchImage(for: "Alfred") { imageString, error in
-            if error != nil {
-                print(error!)
-            } else if let string = imageString {
-                print(string)
+        contactManager.searchContact(with: "Daniel") { contacts, error in
+            if let error = error {
+                print(error)
+            } else if let contacts = contacts {
+                for contact in contacts {
+                    self.manager.fetchImage(for: contact) { imageString, error in
+                        if let error = error {
+                            print(error)
+                        } else if let string = imageString {
+                            print(string)
+                        }
+                    }
+                }
             }
         }
         
