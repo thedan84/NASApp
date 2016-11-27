@@ -54,6 +54,13 @@ class MarsImagesViewController: UICollectionViewController {
 
     //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if segue.identifier == "showMarsDetail" {
+            let detailVC = segue.destination as! MarsDetailViewController
+            if let indexPath = self.collectionView?.indexPathsForSelectedItems?.first {
+                if let marsImage = self.marsPhotos?[indexPath.row] {
+                    detailVC.photo = marsImage
+                }
+            }
+        }
     }
 }
