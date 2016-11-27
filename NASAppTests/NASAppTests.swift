@@ -38,8 +38,8 @@ class NASAppTests: XCTestCase {
     }
     
     func testMarsPhotoDownload() {
-        photoManager.fetchLatestMarsImages { (imageStrings, _) in
-            XCTAssertNotNil(imageStrings != nil, "There are no strings being downloaded")
+        photoManager.fetchLatestMarsImages { (marsPhotos, _) in
+            XCTAssertNotNil(marsPhotos != nil, "There are no strings being downloaded")
         }
     }
     
@@ -90,9 +90,5 @@ class NASAppTests: XCTestCase {
         let labeledValue: CNLabeledValue<CNPostalAddress> = CNLabeledValue(label: "Home", value: postalAddress)
         
         correctCNContact?.postalAddresses = [labeledValue]
-    }
-    
-    func setupIncorrectCNContact() {
-        
     }
 }

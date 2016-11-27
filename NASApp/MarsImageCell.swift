@@ -13,13 +13,17 @@ class MarsImageCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
     
-    func configure(with imageString: String) {
+    func configure(with photo: MarsPhoto) {
         self.layer.cornerRadius = 20
         self.layer.borderColor = UIColor.white.cgColor
         self.layer.borderWidth = 1.5
-        
-        if let url = URL(string: imageString) {
+
+        if let url = photo.imageURL {
             Nuke.loadImage(with: url, into: imageView)
         }
+        
+//        if let url = URL(string: imageString) {
+//            Nuke.loadImage(with: url, into: imageView)
+//        }
     }
 }

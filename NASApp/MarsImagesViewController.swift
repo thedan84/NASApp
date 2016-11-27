@@ -14,18 +14,18 @@ class MarsImagesViewController: UICollectionViewController {
     
     let photoManager = PhotoManager()
     
-    var imageStringsArray: [String]?
+    var marsPhotos: [MarsPhoto]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "Latest Mars Rover Images"
 
-        photoManager.fetchLatestMarsImages() { imageStrings, error in
+        photoManager.fetchLatestMarsImages() { marsPhotos, error in
             if let error = error {
                 AlertManager.displayAlert(with: "Error", message: "\(error.localizedDescription)", in: self)
-            } else if let strings = imageStrings {
-                self.imageStringsArray = strings
+            } else if let photos = marsPhotos {
+                self.marsPhotos = photos
                 self.collectionView?.reloadData()
             }
         }
@@ -34,8 +34,8 @@ class MarsImagesViewController: UICollectionViewController {
 
     // MARK: UICollectionViewDataSource
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if let strings = imageStringsArray {
-            return strings.count
+        if let photos = marsPhotos {
+            return photos.count
         }
         
         return 0
@@ -44,43 +44,16 @@ class MarsImagesViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MarsImageCell
     
-        if let strings = imageStringsArray {
-            let imageString = strings[indexPath.row]
-            cell.configure(with: imageString)
+        if let photos = marsPhotos {
+            let photo = photos[indexPath.row]
+            cell.configure(with: photo)
         }
         
         return cell
     }
 
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
+    //MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
     }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
-
 }
