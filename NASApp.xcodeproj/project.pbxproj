@@ -20,6 +20,7 @@
 		78872AAE1DDCC09A00038A55 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78872AAD1DDCC09A00038A55 /* NetworkManager.swift */; };
 		78872AB21DDCC1FF00038A55 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78872AB11DDCC1FF00038A55 /* Nuke.framework */; };
 		78872AB41DDCC95600038A55 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78872AB31DDCC95600038A55 /* Endpoint.swift */; };
+		78915D131DEC95BA00CFF098 /* PreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78915D121DEC95BA00CFF098 /* PreviewController.swift */; };
 		78DECF551DEAFF62008CBF28 /* MarsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DECF541DEAFF62008CBF28 /* MarsDetailViewController.swift */; };
 		78DECF5A1DEAFFF6008CBF28 /* MarsPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DECF591DEAFFF6008CBF28 /* MarsPhoto.swift */; };
 		78DECF5D1DEB0021008CBF28 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DECF5C1DEB0021008CBF28 /* Photo.swift */; };
@@ -58,6 +59,7 @@
 		78872AAD1DDCC09A00038A55 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		78872AB11DDCC1FF00038A55 /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nuke.framework; path = Carthage/Build/iOS/Nuke.framework; sourceTree = "<group>"; };
 		78872AB31DDCC95600038A55 /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		78915D121DEC95BA00CFF098 /* PreviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewController.swift; sourceTree = "<group>"; };
 		78DECF541DEAFF62008CBF28 /* MarsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarsDetailViewController.swift; sourceTree = "<group>"; };
 		78DECF591DEAFFF6008CBF28 /* MarsPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarsPhoto.swift; sourceTree = "<group>"; };
 		78DECF5C1DEB0021008CBF28 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				7839BC0B1DE5F93500ACE95F /* MarsImagesViewController.swift */,
 				7839BC0D1DE5F94600ACE95F /* MarsImageCell.swift */,
 				78DECF541DEAFF62008CBF28 /* MarsDetailViewController.swift */,
+				78915D121DEC95BA00CFF098 /* PreviewController.swift */,
 			);
 			name = "Mars View Controllers";
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				78DECF5A1DEAFFF6008CBF28 /* MarsPhoto.swift in Sources */,
 				78FF86BF1DE4A5F7006745C2 /* ContactManager.swift in Sources */,
 				7839BC0C1DE5F93500ACE95F /* MarsImagesViewController.swift in Sources */,
+				78915D131DEC95BA00CFF098 /* PreviewController.swift in Sources */,
 				7839BC101DE5FA8700ACE95F /* AlertManager.swift in Sources */,
 				78DFBB881DE1B7B000ED5715 /* PhotoManager.swift in Sources */,
 				78872AAE1DDCC09A00038A55 /* NetworkManager.swift in Sources */,

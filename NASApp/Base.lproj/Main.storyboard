@@ -66,7 +66,7 @@
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kNj-5Z-qPe" id="AUp-DN-1ht">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -146,7 +146,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="692"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="oXC-BI-cA4">
-                                        <rect key="frame" x="8" y="0.0" width="398.33333333333331" height="528"/>
+                                        <rect key="frame" x="8" y="0.0" width="398.33333333333331" height="468"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rvz-Uf-dhp">
                                                 <rect key="frame" x="0.33333333333334281" y="0.0" width="398" height="310"/>
@@ -161,13 +161,6 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WC8-qk-x93">
-                                                <rect key="frame" x="161.33333333333334" y="498" width="76" height="30"/>
-                                                <state key="normal" title="Send Email"/>
-                                                <connections>
-                                                    <action selector="sendEmailButtonTapped:" destination="zZA-zl-Nmz" eventType="touchUpInside" id="IIe-A5-0aB"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="QC3-wa-yHq" firstAttribute="leading" secondItem="oXC-BI-cA4" secondAttribute="leading" constant="9.6666666666666572" id="JqS-Jj-Q7e"/>
@@ -195,13 +188,55 @@
                     <connections>
                         <outlet property="imageView" destination="Rvz-Uf-dhp" id="Wea-39-ZHs"/>
                         <outlet property="scrollView" destination="9me-qn-Kn2" id="f4Y-cx-3JS"/>
-                        <outlet property="sendEmailButton" destination="WC8-qk-x93" id="NS4-jb-ddr"/>
                         <outlet property="textView" destination="QC3-wa-yHq" id="AQd-xv-usf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yEg-JZ-U8N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1960.8695652173915" y="-190.7608695652174"/>
+            <point key="canvasLocation" x="2014" y="-190"/>
+        </scene>
+        <!--Preview Controller-->
+        <scene sceneID="mif-5Y-WyX">
+            <objects>
+                <viewController storyboardIdentifier="PreviewVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="g2H-Go-fL4" customClass="PreviewController" customModule="NASApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9nh-cc-Kul"/>
+                        <viewControllerLayoutGuide type="bottom" id="dKo-dp-pY6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wXs-eh-hh0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="owU-vs-m7m">
+                                <rect key="frame" x="54" y="246" width="306" height="245"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="245" id="B5x-15-g2O"/>
+                                    <constraint firstAttribute="width" constant="306" id="aGV-7N-su5"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aSX-GI-mh0">
+                                <rect key="frame" x="169" y="598" width="76" height="30"/>
+                                <state key="normal" title="Send Email"/>
+                                <connections>
+                                    <action selector="sendEmailButtonTapped:" destination="g2H-Go-fL4" eventType="touchUpInside" id="dQ5-jH-mN4"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="owU-vs-m7m" firstAttribute="centerX" secondItem="wXs-eh-hh0" secondAttribute="centerX" id="QCi-pZ-cUR"/>
+                            <constraint firstItem="owU-vs-m7m" firstAttribute="centerY" secondItem="wXs-eh-hh0" secondAttribute="centerY" id="tcL-Yt-bTH"/>
+                            <constraint firstItem="aSX-GI-mh0" firstAttribute="centerX" secondItem="wXs-eh-hh0" secondAttribute="centerX" id="uiS-0k-Sou"/>
+                            <constraint firstItem="aSX-GI-mh0" firstAttribute="top" secondItem="owU-vs-m7m" secondAttribute="bottom" constant="107" id="zsK-bA-osU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="owU-vs-m7m" id="Y3o-P6-5TX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zg5-np-iFE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2740.579710144928" y="-191.57608695652175"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dzh-kv-i27">

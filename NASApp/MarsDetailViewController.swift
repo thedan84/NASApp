@@ -9,15 +9,16 @@
 import UIKit
 import Nuke
 import MessageUI
+import CoreGraphics
 
 class MarsDetailViewController: UIViewController, UIScrollViewDelegate, UIGestureRecognizerDelegate, MFMailComposeViewControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var textView: UITextView!
-    @IBOutlet weak var sendEmailButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     
     var photo: MarsPhoto?
+    var image: UIImage?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -35,11 +36,23 @@ class MarsDetailViewController: UIViewController, UIScrollViewDelegate, UIGestur
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tapRecognizer)
         tapRecognizer.delegate = self
+        
+        let rightBarButton = UIBarButtonItem(title: "Preview", style: .plain, target: self, action: #selector(previewImage))
+        let attributes = [
+            NSForegroundColorAttributeName: UIColor.white
+        ]
+        rightBarButton.setTitleTextAttributes(attributes, for: .normal)
+        self.navigationItem.setRightBarButton(rightBarButton, animated: true)
     }
     
     func configureViews() {
         if let photo = photo, let url = photo.imageURL {
-           Nuke.loadImage(with: url, into: self.imageView)
+            Nuke.loadImage(with: url, into: self.imageView) { response, _ in
+                if let image = response.value {
+                    self.imageView.image = image
+                    self.image = image
+                }
+            }
         }
         
         self.imageView.layer.cornerRadius = 20
@@ -61,21 +74,41 @@ class MarsDetailViewController: UIViewController, UIScrollViewDelegate, UIGestur
         textView.resignFirstResponder()
     }
     
-    @IBAction func sendEmailButtonTapped(_ sender: UIButton) {
-        if MFMailComposeViewController.canSendMail() {
-            let composeVC = MFMailComposeViewController()
-            composeVC.delegate = self
-            
-            composeVC.setMessageBody("Hello world", isHTML: false)
-            
-            self.present(composeVC, animated: true, completion: nil)
-        } else {
-            AlertManager.displayAlert(with: "Oops", message: "Seems like your device doesn't support sending e-mails, or you're not logged in.", in: self)
-            return
+    //MARK: - Navigation
+    func previewImage() {
+        let previewVC = storyboard?.instantiateViewController(withIdentifier: "PreviewVC") as! PreviewController
+        if let image = self.image {
+            if let newImage = textToImage(text: self.textView.text, image: image, at: CGPoint(x: 20, y: 20)) {
+                previewVC.previewImage = newImage
+                self.navigationController?.pushViewController(previewVC, animated: true)
+            }
         }
     }
     
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        controller.dismiss(animated: true, completion: nil)
+    //MARK: - Helper
+    fileprivate func textToImage(text: String?, image: UIImage?, at point: CGPoint) -> UIImage? {
+        guard let text = text, let image = image else { return nil }
+        
+        let textColor = UIColor.black
+        let font = UIFont.systemFont(ofSize: 17)
+        
+        UIGraphicsBeginImageContext(image.size)
+        
+        let fontAttributes = [
+            NSFontAttributeName: font,
+            NSForegroundColorAttributeName: textColor
+        ]
+        
+        image.draw(in: CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height))
+            
+        let rect = CGRect(x: point.x, y: point.y, width: image.size.width, height: image.size.height)
+        
+        text.draw(in: rect, withAttributes: fontAttributes)
+        
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        
+        UIGraphicsEndImageContext()
+        
+        return newImage
     }
 }
