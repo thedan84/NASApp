@@ -19,7 +19,6 @@ class PreviewController: UIViewController, UINavigationControllerDelegate, MFMai
         super.viewDidLoad()
         
         if let image = previewImage {
-            print(image)
             self.imageView.image = image
         }
     }
@@ -27,9 +26,13 @@ class PreviewController: UIViewController, UINavigationControllerDelegate, MFMai
     @IBAction func sendEmailButtonTapped(_ sender: UIButton) {
         if MFMailComposeViewController.canSendMail() {
             let composeVC = MFMailComposeViewController()
-            composeVC.delegate = self
+            composeVC.mailComposeDelegate = self
             
-            composeVC.setMessageBody("Hello world", isHTML: false)
+            guard let image = previewImage else { return }
+            
+            if let imageData = UIImageJPEGRepresentation(image, 1.0) {
+                composeVC.addAttachmentData(imageData, mimeType: "image/jpeg", fileName: "\(imageData.description)")
+            }
             
             self.present(composeVC, animated: true, completion: nil)
         } else {

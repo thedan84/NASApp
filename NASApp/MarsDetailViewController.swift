@@ -78,7 +78,7 @@ class MarsDetailViewController: UIViewController, UIScrollViewDelegate, UIGestur
     func previewImage() {
         let previewVC = storyboard?.instantiateViewController(withIdentifier: "PreviewVC") as! PreviewController
         if let image = self.image {
-            if let newImage = textToImage(text: self.textView.text, image: image, at: CGPoint(x: 20, y: 20)) {
+            if let newImage = textToImage(text: self.textView.text, image: image) {
                 previewVC.previewImage = newImage
                 self.navigationController?.pushViewController(previewVC, animated: true)
             }
@@ -86,11 +86,11 @@ class MarsDetailViewController: UIViewController, UIScrollViewDelegate, UIGestur
     }
     
     //MARK: - Helper
-    fileprivate func textToImage(text: String?, image: UIImage?, at point: CGPoint) -> UIImage? {
+    fileprivate func textToImage(text: String?, image: UIImage?) -> UIImage? {
         guard let text = text, let image = image else { return nil }
         
-        let textColor = UIColor.black
-        let font = UIFont.systemFont(ofSize: 17)
+        let textColor = UIColor.white
+        guard let font = UIFont(name: "Zapfino", size: 25) else { return nil }
         
         UIGraphicsBeginImageContext(image.size)
         
@@ -101,7 +101,7 @@ class MarsDetailViewController: UIViewController, UIScrollViewDelegate, UIGestur
         
         image.draw(in: CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height))
             
-        let rect = CGRect(x: point.x, y: point.y, width: image.size.width, height: image.size.height)
+        let rect = CGRect(x: 50, y: image.size.height - 100, width: image.size.width, height: image.size.height)
         
         text.draw(in: rect, withAttributes: fontAttributes)
         
