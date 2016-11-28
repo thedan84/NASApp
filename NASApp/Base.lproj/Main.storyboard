@@ -139,49 +139,69 @@
                         <viewControllerLayoutGuide type="bottom" id="X8J-zh-Kd0"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ZUh-zm-Fqq">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="2000"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9me-qn-Kn2">
-                                <rect key="frame" x="0.0" y="20" width="768" height="1980"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9me-qn-Kn2">
+                                <rect key="frame" x="0.0" y="44" width="414" height="692"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bGV-Zc-rwK">
-                                        <rect key="frame" x="20" y="134" width="728" height="480"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3yV-zy-ASj">
-                                        <rect key="frame" x="20" y="624" width="728" height="352"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dal-UI-UbX">
-                                        <rect key="frame" x="346" y="1878" width="76" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Send Email"/>
-                                        <connections>
-                                            <action selector="sendEmailButtonTapped:" destination="zZA-zl-Nmz" eventType="touchUpInside" id="0xP-Se-ALB"/>
-                                        </connections>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="oXC-BI-cA4">
+                                        <rect key="frame" x="8" y="0.0" width="398.33333333333331" height="528"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rvz-Uf-dhp">
+                                                <rect key="frame" x="0.33333333333334281" y="0.0" width="398" height="310"/>
+                                            </imageView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="379" placeholderIntrinsicHeight="128" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="QC3-wa-yHq">
+                                                <rect key="frame" x="9.6666666666666572" y="340" width="379" height="128"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="128" id="2vs-Js-RS8"/>
+                                                </constraints>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WC8-qk-x93">
+                                                <rect key="frame" x="161.33333333333334" y="498" width="76" height="30"/>
+                                                <state key="normal" title="Send Email"/>
+                                                <connections>
+                                                    <action selector="sendEmailButtonTapped:" destination="zZA-zl-Nmz" eventType="touchUpInside" id="IIe-A5-0aB"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="QC3-wa-yHq" firstAttribute="leading" secondItem="oXC-BI-cA4" secondAttribute="leading" constant="9.6666666666666572" id="JqS-Jj-Q7e"/>
+                                            <constraint firstAttribute="trailing" secondItem="QC3-wa-yHq" secondAttribute="trailing" constant="9.3333333333333712" id="s0P-kq-n2w"/>
+                                        </constraints>
+                                    </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="oXC-BI-cA4" firstAttribute="leading" secondItem="9me-qn-Kn2" secondAttribute="leading" constant="8" id="HYh-hU-bQc"/>
+                                    <constraint firstItem="oXC-BI-cA4" firstAttribute="top" secondItem="9me-qn-Kn2" secondAttribute="top" id="P5h-bJ-K4W"/>
+                                    <constraint firstAttribute="bottom" secondItem="oXC-BI-cA4" secondAttribute="bottom" constant="20" id="RZW-lT-jbC"/>
+                                    <constraint firstAttribute="trailing" secondItem="oXC-BI-cA4" secondAttribute="trailing" constant="8" id="i2c-d4-VWW"/>
+                                </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9me-qn-Kn2" firstAttribute="leading" secondItem="ZUh-zm-Fqq" secondAttribute="leading" id="53O-4S-6lL"/>
+                            <constraint firstAttribute="trailing" secondItem="9me-qn-Kn2" secondAttribute="trailing" id="Est-yG-ys1"/>
+                            <constraint firstItem="oXC-BI-cA4" firstAttribute="centerX" secondItem="ZUh-zm-Fqq" secondAttribute="centerX" id="R5l-8m-gjU"/>
+                            <constraint firstItem="X8J-zh-Kd0" firstAttribute="top" secondItem="9me-qn-Kn2" secondAttribute="bottom" id="me4-RX-ohQ"/>
+                            <constraint firstItem="9me-qn-Kn2" firstAttribute="top" secondItem="0Wc-z1-hkP" secondAttribute="bottom" constant="-20" id="tb8-Rh-c2H"/>
+                        </constraints>
                     </view>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="768" height="2000"/>
                     <connections>
-                        <outlet property="imageView" destination="bGV-Zc-rwK" id="eBC-3K-8V9"/>
-                        <outlet property="sendEmailButton" destination="dal-UI-UbX" id="jPi-1c-bKg"/>
-                        <outlet property="textView" destination="3yV-zy-ASj" id="CPg-Ec-4xO"/>
+                        <outlet property="imageView" destination="Rvz-Uf-dhp" id="Wea-39-ZHs"/>
+                        <outlet property="scrollView" destination="9me-qn-Kn2" id="f4Y-cx-3JS"/>
+                        <outlet property="sendEmailButton" destination="WC8-qk-x93" id="NS4-jb-ddr"/>
+                        <outlet property="textView" destination="QC3-wa-yHq" id="AQd-xv-usf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yEg-JZ-U8N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2376.811594202899" y="-190.7608695652174"/>
+            <point key="canvasLocation" x="1960.8695652173915" y="-190.7608695652174"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dzh-kv-i27">
