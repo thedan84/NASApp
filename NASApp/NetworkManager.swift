@@ -13,6 +13,7 @@ typealias JSONArray = [JSON]
 
 struct NetworkManager {
     
+    //MARK: - Request endpoint
     func request(endpoint: Endpoint, parameters: JSON?, completion: @escaping (Result) -> Void) {
         guard let url = endpoint.urlString(with: parameters) else { return }
         

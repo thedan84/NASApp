@@ -9,6 +9,8 @@
 import Foundation
 
 enum Result {
+    
+    //MARK: - Result enum cases
     case success(JSON?)
     case failure(Error?)
 }

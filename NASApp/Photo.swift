@@ -9,7 +9,10 @@
 import Foundation
 
 protocol Photo {
+    
+    //MARK: - Properties
     var imageURL: URL? { get }
     
+    //MARK: - Initialization
     init?(json: JSON)
 }

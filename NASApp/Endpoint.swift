@@ -13,10 +13,13 @@ import Foundation
  */
 
 enum Endpoint {
+    
+    //MARK: - Enum cases
     case manifest
     case curiosityPhotos
     case earth
     
+    //MARK: - Computed properties
     private var apiKey: String {
         return "D3z09rlgrrJlvHcp9V4jAYeNAVJib75bBxqyZiFR"
     }
@@ -25,6 +28,7 @@ enum Endpoint {
         return "https://api.nasa.gov/"
     }
     
+    //MARK: - URL string for enum case
     func urlString(with parameters: JSON?) -> URL? {
         switch self {
         case .manifest: return URL(string: baseURL + "mars-photos/api/v1/manifests/Curiosity?api_key=\(apiKey)")

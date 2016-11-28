@@ -11,8 +11,10 @@ import Nuke
 
 class MarsImageCell: UICollectionViewCell {
     
+    //MARK: - Properties
     @IBOutlet weak var imageView: UIImageView!
     
+    //MARK: - Cell configuration
     func configure(with photo: MarsPhoto) {
         self.layer.cornerRadius = 20
         self.layer.borderColor = UIColor.white.cgColor
@@ -21,9 +23,5 @@ class MarsImageCell: UICollectionViewCell {
         if let url = photo.imageURL {
             Nuke.loadImage(with: url, into: imageView)
         }
-        
-//        if let url = URL(string: imageString) {
-//            Nuke.loadImage(with: url, into: imageView)
-//        }
     }
 }

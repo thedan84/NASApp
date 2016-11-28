@@ -10,11 +10,13 @@ import UIKit
 import MessageUI
 
 class PreviewController: UIViewController, UINavigationControllerDelegate, MFMailComposeViewControllerDelegate {
-
+    
+    //MARK: - Properties
     @IBOutlet weak var imageView: UIImageView!
     
     var previewImage: UIImage?
     
+    //MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,6 +25,7 @@ class PreviewController: UIViewController, UINavigationControllerDelegate, MFMai
         }
     }
 
+    //MARK: - IBAction
     @IBAction func sendEmailButtonTapped(_ sender: UIButton) {
         if MFMailComposeViewController.canSendMail() {
             let composeVC = MFMailComposeViewController()
@@ -41,6 +44,7 @@ class PreviewController: UIViewController, UINavigationControllerDelegate, MFMai
         }
     }
     
+    //MARK: - MFMailComposeViewControllerDelegate
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true, completion: nil)
     }

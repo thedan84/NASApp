@@ -9,10 +9,14 @@
 import Foundation
 
 struct EarthPhoto: Photo {
+    
+    //MARK: - Properties
     var imageURL: URL?
 }
 
 extension EarthPhoto {
+    
+    //MARK: - Initialization
     init?(json: JSON) {
         guard let url = json["url"] as? String else { return nil }
         

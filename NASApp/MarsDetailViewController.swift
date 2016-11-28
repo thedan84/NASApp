@@ -13,6 +13,7 @@ import CoreGraphics
 
 class MarsDetailViewController: UIViewController, UIScrollViewDelegate, UIGestureRecognizerDelegate, MFMailComposeViewControllerDelegate, UINavigationControllerDelegate {
     
+    //MARK: - Properties
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -20,6 +21,7 @@ class MarsDetailViewController: UIViewController, UIScrollViewDelegate, UIGestur
     var photo: MarsPhoto?
     var image: UIImage?
     
+    //MARK: - View lifecycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -45,6 +47,7 @@ class MarsDetailViewController: UIViewController, UIScrollViewDelegate, UIGestur
         self.navigationItem.setRightBarButton(rightBarButton, animated: true)
     }
     
+    //MARK: - View configuration
     func configureViews() {
         if let photo = photo, let url = photo.imageURL {
             Nuke.loadImage(with: url, into: self.imageView) { response, _ in
@@ -66,12 +69,9 @@ class MarsDetailViewController: UIViewController, UIScrollViewDelegate, UIGestur
         self.textView.layer.masksToBounds = true
     }
     
+    //MARK: - UIScrollViewDelegate
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         dismissKeyboard()
-    }
-    
-    func dismissKeyboard() {
-        textView.resignFirstResponder()
     }
     
     //MARK: - Navigation
@@ -85,7 +85,11 @@ class MarsDetailViewController: UIViewController, UIScrollViewDelegate, UIGestur
         }
     }
     
-    //MARK: - Helper
+    //MARK: - Helpers
+    func dismissKeyboard() {
+        textView.resignFirstResponder()
+    }
+    
     fileprivate func textToImage(text: String?, image: UIImage?) -> UIImage? {
         guard let text = text, let image = image else { return nil }
         

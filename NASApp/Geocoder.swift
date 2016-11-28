@@ -10,8 +10,11 @@ import Foundation
 import CoreLocation
 
 struct Geocoder {
+    
+    //MARK: - Properties
     let geoCoder = CLGeocoder()
     
+    //MARK: - Geocode address for given address string
     func geocodeAddress(for addressString: String, completion: @escaping (CLLocation?, Error?) -> Void) {
         geoCoder.geocodeAddressString(addressString) { placemarks, error in
             if error != nil {

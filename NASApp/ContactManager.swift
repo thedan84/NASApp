@@ -11,16 +11,19 @@ import Contacts
 import CoreLocation
 
 struct ContactManager {
-    
+
+    //MARK: - Properties
     let contactStore = CNContactStore()
     let geocoder = Geocoder()
     
+    //MARK: - Authorization status
     fileprivate func requestAuthorization() {
         if CNContactStore.authorizationStatus(for: .contacts) == .notDetermined {
             contactStore.requestAccess(for: .contacts) { _ in }
         }
     }
     
+    //MARK: - Search contact by name
     func searchContact(with name: String, completion: @escaping ([CNContact]?, Error?) -> Void) {
         requestAuthorization()
         
@@ -43,6 +46,7 @@ struct ContactManager {
         }
     }
     
+    //MARK: - Search location for contact
     func searchLocation(for contact: CNContact, completion: @escaping (CLLocation?, Error?) -> Void) {
         if let streetAddress = contact.postalAddresses.first?.value {
             let formattedAddress = CNPostalAddressFormatter.string(from: streetAddress, style: .mailingAddress)

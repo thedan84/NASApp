@@ -9,10 +9,14 @@
 import Foundation
 
 struct MarsPhoto: Photo {
+    
+    //MARK: - Properties
     let imageURL: URL?
 }
 
 extension MarsPhoto {
+    
+    //MARK: - Initialization
     init?(json: JSON) {
         guard let imageString = json["img_src"] as? String else { return nil }
 

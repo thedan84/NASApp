@@ -12,6 +12,7 @@ import Contacts
 
 class NASAppTests: XCTestCase {
     
+    //MARK: - Properties
     let photoManager = PhotoManager()
     let contactManager = ContactManager()
     let geocoder = Geocoder()
@@ -24,6 +25,7 @@ class NASAppTests: XCTestCase {
     
     var correctCNContact: CNMutableContact? = nil
     
+    //MARK: - Set up and tear down
     override func setUp() {
         super.setUp()
         
@@ -37,12 +39,14 @@ class NASAppTests: XCTestCase {
         super.tearDown()
     }
     
+    //MARK: - Test download of mars photos
     func testMarsPhotoDownload() {
         photoManager.fetchLatestMarsImages { (marsPhotos, _) in
             XCTAssertNotNil(marsPhotos != nil, "There are no strings being downloaded")
         }
     }
     
+    //MARK: - Test location search
     func testWorkingLocationSearch() {
         geocoder.geocodeAddress(for: correctFakeAddress) { location, _ in
             XCTAssertNotNil(location != nil, "The specified address is incorrect")
@@ -55,6 +59,7 @@ class NASAppTests: XCTestCase {
         }
     }
     
+    //MARK: - Test contact search
     func testWorkingContactSearch() {
         contactManager.searchContact(with: correctFakeContactName) { contacts, _ in
             XCTAssertNotNil(contacts != nil, "The specified contact's name is incorrect")
@@ -67,6 +72,7 @@ class NASAppTests: XCTestCase {
         }
     }
     
+    //MARK: - Test download of image for contact
     func testImageDownloadForContact() {
         if let contact = correctCNContact {
             photoManager.fetchImage(for: contact) { imageString, _ in

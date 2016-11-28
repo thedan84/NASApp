@@ -12,10 +12,11 @@ private let reuseIdentifier = "imageCell"
 
 class MarsImagesViewController: UICollectionViewController {
     
+    //MARK: - Properties
     let photoManager = PhotoManager()
-    
     var marsPhotos: [MarsPhoto]?
 
+    //MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         

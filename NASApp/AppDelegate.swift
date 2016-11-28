@@ -13,41 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-//    let manager = PhotoManager()
-//    let contactManager = ContactManager()
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-//        contactManager.searchContact(with: "Daniel") { contacts, error in
-//            if let error = error {
-//                print(error)
-//            } else if let contacts = contacts {
-//                for contact in contacts {
-//                    self.manager.fetchImage(for: contact) { imageString, error in
-//                        if let error = error {
-//                            print(error)
-//                        } else if let string = imageString {
-//                            print(string)
-//                        }
-//                    }
-//                }
-//            }
-//        }
-        
-//        manager.fetchLatestMarsImages { (photoStrings, error) in
-//            if let photos = photoStrings {
-//                for photo in photos {
-//                    print(photo)
-//                }
-//            }
-//        }
-        
-//        manager.fetchEarthImage(for: "Jungbluthstr. 11") { photoString, error in
-//            if let string = photoString {
-//                print(string)
-//            }
-//        }
         
         return true
     }

@@ -9,6 +9,8 @@
 import UIKit
 
 struct AlertManager {
+    
+    //MARK: - Display alert
     static func displayAlert(with title: String?, message: String?, in viewController: UIViewController) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         

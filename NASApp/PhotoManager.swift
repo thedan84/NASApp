@@ -11,10 +11,12 @@ import Contacts
 
 struct PhotoManager {
     
+    //MARK: - Properties
     let networkManager = NetworkManager()
     let geocoder = Geocoder()
     let contactManager = ContactManager()
     
+    //MARK: - Fetch Mars Images
     func fetchLatestMarsImages(completion: @escaping ([MarsPhoto]?, Error?) -> Void) {
         networkManager.request(endpoint: .manifest, parameters: nil) { result in
             switch result {
@@ -41,6 +43,7 @@ struct PhotoManager {
         }
     }
     
+    //MARK: - Fetch earth image for specific address
     func fetchEarthImage(for address: String, completion: @escaping (EarthPhoto?, Error?) -> Void) {
         geocoder.geocodeAddress(for: address) { location, error in
             
@@ -60,6 +63,7 @@ struct PhotoManager {
         }
     }
     
+    //MARK: - Fetch earth image for specific contact
     func fetchImage(for contact: CNContact, completion: @escaping (EarthPhoto?, Error?) -> Void) {
         contactManager.searchLocation(for: contact) { location, error in
             guard let location = location else { return }
