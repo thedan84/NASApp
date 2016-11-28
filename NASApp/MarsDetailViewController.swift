@@ -8,8 +8,9 @@
 
 import UIKit
 import Nuke
+import MessageUI
 
-class MarsDetailViewController: UIViewController, UIScrollViewDelegate, UIGestureRecognizerDelegate {
+class MarsDetailViewController: UIViewController, UIScrollViewDelegate, UIGestureRecognizerDelegate, MFMailComposeViewControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var textView: UITextView!
@@ -61,6 +62,20 @@ class MarsDetailViewController: UIViewController, UIScrollViewDelegate, UIGestur
     }
     
     @IBAction func sendEmailButtonTapped(_ sender: UIButton) {
-        print("tap")
+        if MFMailComposeViewController.canSendMail() {
+            let composeVC = MFMailComposeViewController()
+            composeVC.delegate = self
+            
+            composeVC.setMessageBody("Hello world", isHTML: false)
+            
+            self.present(composeVC, animated: true, completion: nil)
+        } else {
+            AlertManager.displayAlert(with: "Oops", message: "Seems like your device doesn't support sending e-mails, or you're not logged in.", in: self)
+            return
+        }
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
     }
 }
