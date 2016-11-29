@@ -8,10 +8,6 @@
 
 import Foundation
 
-/*
- API Key NASA API: D3z09rlgrrJlvHcp9V4jAYeNAVJib75bBxqyZiFR
- */
-
 enum Endpoint {
     
     //MARK: - Enum cases
