@@ -22,36 +22,90 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" alpha="0.84999999999999998" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="03Q-7T-Otb">
-                                <rect key="frame" x="107" y="351" width="160" height="56"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Earth Images">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="fRA-rb-QUJ" kind="show" identifier="showEarthImages" id="Dkq-vu-pqL"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" alpha="0.84999999999999998" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ypw-7T-AlN">
-                                <rect key="frame" x="107" y="223" width="160" height="56"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Download Mars Images">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="Zqf-xW-s4p" kind="show" identifier="showMarsImages" id="CSs-8I-1FX"/>
-                                </connections>
-                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="alc-oE-eqV">
+                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Space" translatesAutoresizingMaskIntoConstraints="NO" id="yBR-Kz-kTg">
+                                        <rect key="frame" x="8" y="0.0" width="398" height="1080"/>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="0R6-p7-8k0">
+                                        <rect key="frame" x="114.33333333333334" y="240" width="186.66666666666666" height="124"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6nP-jm-CL9">
+                                                <rect key="frame" x="40.333333333333329" y="0.0" width="106.33333333333336" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NASApp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gr9-6G-1zQ">
+                                                <rect key="frame" x="0.0" y="64" width="186.66666666666669" height="60"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="kV5-1k-mFk">
+                                        <rect key="frame" x="111" y="682" width="192" height="100"/>
+                                        <subviews>
+                                            <button opaque="NO" alpha="0.84999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ypw-7T-AlN">
+                                                <rect key="frame" x="0.0" y="0.0" width="192" height="30"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <state key="normal" title="Create Mars Rover Postcard">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="Zqf-xW-s4p" kind="show" identifier="showMarsImages" id="CSs-8I-1FX"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" alpha="0.84999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="03Q-7T-Otb">
+                                                <rect key="frame" x="0.0" y="70" width="192" height="30"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <state key="normal" title="Eye in the sky">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="fRA-rb-QUJ" kind="show" identifier="showEarthImages" id="Dkq-vu-pqL"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Down" translatesAutoresizingMaskIntoConstraints="NO" id="Jg0-aL-Pov">
+                                        <rect key="frame" x="129" y="536" width="156" height="39"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="39" id="PG4-DM-6js"/>
+                                            <constraint firstAttribute="width" constant="156" id="vIh-oz-dYp"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="kV5-1k-mFk" firstAttribute="centerX" secondItem="alc-oE-eqV" secondAttribute="centerX" id="2N7-1d-ab1"/>
+                                    <constraint firstItem="yBR-Kz-kTg" firstAttribute="centerX" secondItem="alc-oE-eqV" secondAttribute="centerX" id="68G-cd-ySd"/>
+                                    <constraint firstAttribute="trailing" secondItem="yBR-Kz-kTg" secondAttribute="trailing" constant="8" id="6kk-oe-lx0"/>
+                                    <constraint firstItem="yBR-Kz-kTg" firstAttribute="top" secondItem="alc-oE-eqV" secondAttribute="top" id="8qZ-91-UGg"/>
+                                    <constraint firstItem="0R6-p7-8k0" firstAttribute="centerX" secondItem="alc-oE-eqV" secondAttribute="centerX" id="KDp-U6-6Xi"/>
+                                    <constraint firstItem="Jg0-aL-Pov" firstAttribute="centerX" secondItem="0R6-p7-8k0" secondAttribute="centerX" id="QWC-kF-DUI"/>
+                                    <constraint firstItem="Jg0-aL-Pov" firstAttribute="top" secondItem="0R6-p7-8k0" secondAttribute="bottom" constant="172" id="XJB-LI-91a"/>
+                                    <constraint firstItem="0R6-p7-8k0" firstAttribute="top" secondItem="alc-oE-eqV" secondAttribute="top" constant="240" id="aEW-JJ-vBD"/>
+                                    <constraint firstItem="yBR-Kz-kTg" firstAttribute="leading" secondItem="alc-oE-eqV" secondAttribute="leading" constant="8" id="am8-ce-ZVk"/>
+                                    <constraint firstAttribute="bottom" secondItem="kV5-1k-mFk" secondAttribute="bottom" constant="298" id="e1l-y0-x0y"/>
+                                    <constraint firstAttribute="bottom" secondItem="yBR-Kz-kTg" secondAttribute="bottom" id="lLu-uz-cfl"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cZd-9z-27i" firstAttribute="top" secondItem="alc-oE-eqV" secondAttribute="bottom" id="IRe-nY-R6o"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="alc-oE-eqV" secondAttribute="trailing" constant="-20" id="Nt2-c1-Rz6"/>
+                            <constraint firstItem="alc-oE-eqV" firstAttribute="leading" secondItem="puf-2W-vlq" secondAttribute="leadingMargin" constant="-20" id="daZ-FI-nMN"/>
+                            <constraint firstItem="alc-oE-eqV" firstAttribute="top" secondItem="wF1-e3-U9H" secondAttribute="bottom" constant="-44" id="nNq-ee-ixV"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="m7V-ea-wgn"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ua6-Bq-C5V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="280.80000000000001" y="167.76611694152925"/>
+            <point key="canvasLocation" x="279.71014492753625" y="167.11956521739131"/>
         </scene>
         <!--Search Earth Image Controller-->
         <scene sceneID="ggT-op-5fz">
@@ -141,7 +195,7 @@
         <scene sceneID="Hc5-EI-PcF">
             <objects>
                 <collectionViewController id="Zqf-xW-s4p" customClass="MarsImagesViewController" customModule="NASApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="8jV-wg-80z">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="8jV-wg-80z">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -314,5 +368,9 @@
             <point key="canvasLocation" x="-449" y="168"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Down" width="151" height="57"/>
+        <image name="Space" width="1920" height="1080"/>
+    </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>
