@@ -20,7 +20,7 @@ class MarsImagesViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Latest Mars Rover Images"
+        self.title = "Select an image"
 
         photoManager.fetchLatestMarsImages() { marsPhotos, error in
             if let error = error {

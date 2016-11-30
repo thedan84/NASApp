@@ -10,20 +10,20 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="Q0h-m8-uSR">
             <objects>
-                <viewController id="Zup-Xv-Y5J" sceneMemberID="viewController">
+                <viewController id="Zup-Xv-Y5J" customClass="MainViewController" customModule="NASApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wF1-e3-U9H"/>
                         <viewControllerLayoutGuide type="bottom" id="cZd-9z-27i"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="puf-2W-vlq">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="alc-oE-eqV">
-                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="980"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Space" translatesAutoresizingMaskIntoConstraints="NO" id="yBR-Kz-kTg">
                                         <rect key="frame" x="8" y="0.0" width="398" height="1080"/>
@@ -45,11 +45,11 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="kV5-1k-mFk">
-                                        <rect key="frame" x="111" y="682" width="192" height="100"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="kV5-1k-mFk">
+                                        <rect key="frame" x="20" y="682" width="374" height="100"/>
                                         <subviews>
                                             <button opaque="NO" alpha="0.84999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ypw-7T-AlN">
-                                                <rect key="frame" x="0.0" y="0.0" width="192" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="Create Mars Rover Postcard">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -59,24 +59,17 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" alpha="0.84999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="03Q-7T-Otb">
-                                                <rect key="frame" x="0.0" y="70" width="192" height="30"/>
+                                                <rect key="frame" x="0.0" y="70" width="374" height="30"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="Eye in the sky">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="fRA-rb-QUJ" kind="show" identifier="showEarthImages" id="Dkq-vu-pqL"/>
+                                                    <action selector="eyeInTheSkyButtonTapped:" destination="Zup-Xv-Y5J" eventType="touchUpInside" id="01H-64-fnp"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Down" translatesAutoresizingMaskIntoConstraints="NO" id="Jg0-aL-Pov">
-                                        <rect key="frame" x="129" y="536" width="156" height="39"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="39" id="PG4-DM-6js"/>
-                                            <constraint firstAttribute="width" constant="156" id="vIh-oz-dYp"/>
-                                        </constraints>
-                                    </imageView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="kV5-1k-mFk" firstAttribute="centerX" secondItem="alc-oE-eqV" secondAttribute="centerX" id="2N7-1d-ab1"/>
@@ -84,8 +77,6 @@
                                     <constraint firstAttribute="trailing" secondItem="yBR-Kz-kTg" secondAttribute="trailing" constant="8" id="6kk-oe-lx0"/>
                                     <constraint firstItem="yBR-Kz-kTg" firstAttribute="top" secondItem="alc-oE-eqV" secondAttribute="top" id="8qZ-91-UGg"/>
                                     <constraint firstItem="0R6-p7-8k0" firstAttribute="centerX" secondItem="alc-oE-eqV" secondAttribute="centerX" id="KDp-U6-6Xi"/>
-                                    <constraint firstItem="Jg0-aL-Pov" firstAttribute="centerX" secondItem="0R6-p7-8k0" secondAttribute="centerX" id="QWC-kF-DUI"/>
-                                    <constraint firstItem="Jg0-aL-Pov" firstAttribute="top" secondItem="0R6-p7-8k0" secondAttribute="bottom" constant="172" id="XJB-LI-91a"/>
                                     <constraint firstItem="0R6-p7-8k0" firstAttribute="top" secondItem="alc-oE-eqV" secondAttribute="top" constant="240" id="aEW-JJ-vBD"/>
                                     <constraint firstItem="yBR-Kz-kTg" firstAttribute="leading" secondItem="alc-oE-eqV" secondAttribute="leading" constant="8" id="am8-ce-ZVk"/>
                                     <constraint firstAttribute="bottom" secondItem="kV5-1k-mFk" secondAttribute="bottom" constant="298" id="e1l-y0-x0y"/>
@@ -95,69 +86,21 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="kV5-1k-mFk" firstAttribute="leading" secondItem="puf-2W-vlq" secondAttribute="leadingMargin" id="9Yq-Qm-F0C"/>
                             <constraint firstItem="cZd-9z-27i" firstAttribute="top" secondItem="alc-oE-eqV" secondAttribute="bottom" id="IRe-nY-R6o"/>
                             <constraint firstAttribute="trailingMargin" secondItem="alc-oE-eqV" secondAttribute="trailing" constant="-20" id="Nt2-c1-Rz6"/>
                             <constraint firstItem="alc-oE-eqV" firstAttribute="leading" secondItem="puf-2W-vlq" secondAttribute="leadingMargin" constant="-20" id="daZ-FI-nMN"/>
                             <constraint firstItem="alc-oE-eqV" firstAttribute="top" secondItem="wF1-e3-U9H" secondAttribute="bottom" constant="-44" id="nNq-ee-ixV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kV5-1k-mFk" secondAttribute="trailing" id="vcX-ML-r1W"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="m7V-ea-wgn"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="414" height="1000"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ua6-Bq-C5V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="279.71014492753625" y="167.11956521739131"/>
-        </scene>
-        <!--Search Earth Image Controller-->
-        <scene sceneID="ggT-op-5fz">
-            <objects>
-                <viewController id="fRA-rb-QUJ" customClass="SearchEarthImageController" customModule="NASApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="cNL-QY-2GU"/>
-                        <viewControllerLayoutGuide type="bottom" id="aU8-5p-jXD"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="flD-rv-5Bk">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0g6-2b-wfO">
-                                <rect key="frame" x="144" y="290" width="127" height="30"/>
-                                <state key="normal" title="Search for contact"/>
-                                <connections>
-                                    <action selector="searchContactButtonTapped:" destination="fRA-rb-QUJ" eventType="touchUpInside" id="dhT-Yy-6gH"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZVb-nQ-PNU">
-                                <rect key="frame" x="154" y="391" width="107" height="30"/>
-                                <state key="normal" title="Search address"/>
-                                <connections>
-                                    <action selector="searchAddressButtonTapped:" destination="fRA-rb-QUJ" eventType="touchUpInside" id="oOH-R3-h7M"/>
-                                </connections>
-                            </button>
-                            <textField hidden="YES" opaque="NO" clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IuA-sw-ufD">
-                                <rect key="frame" x="30" y="439" width="354" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES"/>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="IuA-sw-ufD" firstAttribute="top" secondItem="ZVb-nQ-PNU" secondAttribute="bottom" constant="18" id="0S3-q5-80d"/>
-                            <constraint firstItem="IuA-sw-ufD" firstAttribute="leading" secondItem="flD-rv-5Bk" secondAttribute="leadingMargin" constant="10" id="9Sr-ES-6fN"/>
-                            <constraint firstItem="0g6-2b-wfO" firstAttribute="centerX" secondItem="flD-rv-5Bk" secondAttribute="centerX" id="giY-sQ-51g"/>
-                            <constraint firstItem="ZVb-nQ-PNU" firstAttribute="centerX" secondItem="0g6-2b-wfO" secondAttribute="centerX" id="qfl-23-GAW"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="IuA-sw-ufD" secondAttribute="trailing" constant="10" id="ssi-3p-dmc"/>
-                            <constraint firstItem="0g6-2b-wfO" firstAttribute="top" secondItem="cNL-QY-2GU" secondAttribute="bottom" constant="226" id="wF8-qv-Z5S"/>
-                            <constraint firstItem="ZVb-nQ-PNU" firstAttribute="top" secondItem="0g6-2b-wfO" secondAttribute="bottom" constant="71" id="xRy-BI-vBt"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="searchAddressTextField" destination="IuA-sw-ufD" id="9m6-gR-yxJ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ScU-81-IIg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1258" y="528"/>
         </scene>
         <!--Image View Controller-->
         <scene sceneID="Fzb-Ph-xs1">
@@ -189,14 +132,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c1t-NH-KOI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2013.0434782608697" y="527.44565217391312"/>
+            <point key="canvasLocation" x="1258" y="582"/>
         </scene>
         <!--Mars Images View Controller-->
         <scene sceneID="Hc5-EI-PcF">
             <objects>
                 <collectionViewController id="Zqf-xW-s4p" customClass="MarsImagesViewController" customModule="NASApp" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="8jV-wg-80z">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="10" id="fA2-Ms-CD6">
@@ -249,11 +192,11 @@
                         <viewControllerLayoutGuide type="bottom" id="X8J-zh-Kd0"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ZUh-zm-Fqq">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9me-qn-Kn2">
-                                <rect key="frame" x="0.0" y="44" width="414" height="692"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="956"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="oXC-BI-cA4">
                                         <rect key="frame" x="8" y="0.0" width="398.33333333333331" height="468"/>
@@ -369,7 +312,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Down" width="151" height="57"/>
         <image name="Space" width="1920" height="1080"/>
     </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

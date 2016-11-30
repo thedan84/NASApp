@@ -11,7 +11,6 @@
 		7839BC0C1DE5F93500ACE95F /* MarsImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7839BC0B1DE5F93500ACE95F /* MarsImagesViewController.swift */; };
 		7839BC0E1DE5F94600ACE95F /* MarsImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7839BC0D1DE5F94600ACE95F /* MarsImageCell.swift */; };
 		7839BC101DE5FA8700ACE95F /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7839BC0F1DE5FA8700ACE95F /* AlertManager.swift */; };
-		7842C6671DEDD30F000C75A2 /* SearchEarthImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7842C6661DEDD30F000C75A2 /* SearchEarthImageController.swift */; };
 		7842C66A1DEDD5C7000C75A2 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7842C6691DEDD5C7000C75A2 /* ImageViewController.swift */; };
 		78872A8C1DDCBF3C00038A55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78872A8B1DDCBF3C00038A55 /* AppDelegate.swift */; };
 		78872A911DDCBF3C00038A55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78872A8F1DDCBF3C00038A55 /* Main.storyboard */; };
@@ -23,6 +22,9 @@
 		78872AB21DDCC1FF00038A55 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78872AB11DDCC1FF00038A55 /* Nuke.framework */; };
 		78872AB41DDCC95600038A55 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78872AB31DDCC95600038A55 /* Endpoint.swift */; };
 		78915D131DEC95BA00CFF098 /* PreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78915D121DEC95BA00CFF098 /* PreviewController.swift */; };
+		78AD7D0E1DEF299B00135AAA /* KRAlertController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78AD7D0C1DEF299B00135AAA /* KRAlertController.framework */; };
+		78AD7D0F1DEF299B00135AAA /* KRProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78AD7D0D1DEF299B00135AAA /* KRProgressHUD.framework */; };
+		78AD7D111DEF2E2200135AAA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AD7D101DEF2E2200135AAA /* MainViewController.swift */; };
 		78DECF551DEAFF62008CBF28 /* MarsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DECF541DEAFF62008CBF28 /* MarsDetailViewController.swift */; };
 		78DECF5A1DEAFFF6008CBF28 /* MarsPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DECF591DEAFFF6008CBF28 /* MarsPhoto.swift */; };
 		78DECF5D1DEB0021008CBF28 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DECF5C1DEB0021008CBF28 /* Photo.swift */; };
@@ -48,7 +50,6 @@
 		7839BC0B1DE5F93500ACE95F /* MarsImagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarsImagesViewController.swift; sourceTree = "<group>"; };
 		7839BC0D1DE5F94600ACE95F /* MarsImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarsImageCell.swift; sourceTree = "<group>"; };
 		7839BC0F1DE5FA8700ACE95F /* AlertManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
-		7842C6661DEDD30F000C75A2 /* SearchEarthImageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchEarthImageController.swift; sourceTree = "<group>"; };
 		7842C6691DEDD5C7000C75A2 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		78872A881DDCBF3C00038A55 /* NASApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NASApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78872A8B1DDCBF3C00038A55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +65,9 @@
 		78872AB11DDCC1FF00038A55 /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nuke.framework; path = Carthage/Build/iOS/Nuke.framework; sourceTree = "<group>"; };
 		78872AB31DDCC95600038A55 /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		78915D121DEC95BA00CFF098 /* PreviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewController.swift; sourceTree = "<group>"; };
+		78AD7D0C1DEF299B00135AAA /* KRAlertController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KRAlertController.framework; path = Carthage/Build/iOS/KRAlertController.framework; sourceTree = "<group>"; };
+		78AD7D0D1DEF299B00135AAA /* KRProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KRProgressHUD.framework; path = Carthage/Build/iOS/KRProgressHUD.framework; sourceTree = "<group>"; };
+		78AD7D101DEF2E2200135AAA /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		78DECF541DEAFF62008CBF28 /* MarsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarsDetailViewController.swift; sourceTree = "<group>"; };
 		78DECF591DEAFFF6008CBF28 /* MarsPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarsPhoto.swift; sourceTree = "<group>"; };
 		78DECF5C1DEB0021008CBF28 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
@@ -81,6 +85,8 @@
 			files = (
 				7826924A1DE4C2DF00E4FBDC /* Contacts.framework in Frameworks */,
 				78872AB21DDCC1FF00038A55 /* Nuke.framework in Frameworks */,
+				78AD7D0E1DEF299B00135AAA /* KRAlertController.framework in Frameworks */,
+				78AD7D0F1DEF299B00135AAA /* KRProgressHUD.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,7 +103,6 @@
 		7842C6681DEDD312000C75A2 /* Earth View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				7842C6661DEDD30F000C75A2 /* SearchEarthImageController.swift */,
 				7842C6691DEDD5C7000C75A2 /* ImageViewController.swift */,
 			);
 			name = "Earth View Controllers";
@@ -126,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				78872A8B1DDCBF3C00038A55 /* AppDelegate.swift */,
+				78AD7D101DEF2E2200135AAA /* MainViewController.swift */,
 				78DECF561DEAFF70008CBF28 /* Mars View Controllers */,
 				7842C6681DEDD312000C75A2 /* Earth View Controllers */,
 				78DECF571DEAFFC7008CBF28 /* Model Managers */,
@@ -152,6 +158,8 @@
 		78872AB01DDCC1FF00038A55 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				78AD7D0C1DEF299B00135AAA /* KRAlertController.framework */,
+				78AD7D0D1DEF299B00135AAA /* KRProgressHUD.framework */,
 				782692491DE4C2DF00E4FBDC /* Contacts.framework */,
 				78872AB11DDCC1FF00038A55 /* Nuke.framework */,
 			);
@@ -310,6 +318,8 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Nuke.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/KRAlertController.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/KRProgressHUD.framework",
 			);
 			outputPaths = (
 			);
@@ -333,12 +343,12 @@
 				78DFBB881DE1B7B000ED5715 /* PhotoManager.swift in Sources */,
 				78872AAE1DDCC09A00038A55 /* NetworkManager.swift in Sources */,
 				78DECF5D1DEB0021008CBF28 /* Photo.swift in Sources */,
-				7842C6671DEDD30F000C75A2 /* SearchEarthImageController.swift in Sources */,
 				78872AB41DDCC95600038A55 /* Endpoint.swift in Sources */,
 				78872A8C1DDCBF3C00038A55 /* AppDelegate.swift in Sources */,
 				78DECF551DEAFF62008CBF28 /* MarsDetailViewController.swift in Sources */,
 				78DFBB8E1DE1D11200ED5715 /* Result.swift in Sources */,
 				78DECF5F1DEB042B008CBF28 /* EarthPhoto.swift in Sources */,
+				78AD7D111DEF2E2200135AAA /* MainViewController.swift in Sources */,
 				7839BC0E1DE5F94600ACE95F /* MarsImageCell.swift in Sources */,
 				78DFBB901DE1D4C900ED5715 /* Geocoder.swift in Sources */,
 			);
