@@ -58,12 +58,12 @@ class MainViewController: UIViewController, CNContactPickerDelegate {
             }
             searchAction.isEnabled = false
             
-            alert.addTextField(configurationHandler: { (textField) in
+            alert.addTextField() {textField in
                 textField.placeholder = "Rome, Italy"
                 NotificationCenter.default.addObserver(forName: Notification.Name.UITextFieldTextDidChange, object: textField, queue: OperationQueue.main, using: { (notification) in
                     searchAction.isEnabled = textField.text != nil
                 })
-            })
+            }
             
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             

@@ -11,12 +11,12 @@ import Nuke
 import MessageUI
 import CoreGraphics
 
-class MarsDetailViewController: UIViewController, UIScrollViewDelegate, UIGestureRecognizerDelegate, MFMailComposeViewControllerDelegate, UINavigationControllerDelegate {
+class MarsDetailViewController: UIViewController, MFMailComposeViewControllerDelegate, UINavigationControllerDelegate {
     
     //MARK: - Properties
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var textView: UITextView!
-    @IBOutlet weak var scrollView: UIScrollView!
+    
+    var inputAccessory: UIView!
     
     var photo: MarsPhoto?
     var image: UIImage?
@@ -30,21 +30,7 @@ class MarsDetailViewController: UIViewController, UIScrollViewDelegate, UIGestur
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        scrollView.delegate = self
-
-        textView.becomeFirstResponder()
-        
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        view.addGestureRecognizer(tapRecognizer)
-        tapRecognizer.delegate = self
-        
-        let rightBarButton = UIBarButtonItem(title: "Preview", style: .plain, target: self, action: #selector(previewImage))
-        let attributes = [
-            NSForegroundColorAttributeName: UIColor.white
-        ]
-        rightBarButton.setTitleTextAttributes(attributes, for: .normal)
-        self.navigationItem.setRightBarButton(rightBarButton, animated: true)
+    
     }
     
     //MARK: - View configuration
@@ -62,39 +48,51 @@ class MarsDetailViewController: UIViewController, UIScrollViewDelegate, UIGestur
         self.imageView.layer.borderWidth = 2
         self.imageView.layer.borderColor = UIColor.white.cgColor
         self.imageView.layer.masksToBounds = true
-        
-        self.textView.layer.cornerRadius = 20
-        self.textView.layer.borderWidth = 2
-        self.textView.layer.borderColor = UIColor.white.cgColor
-        self.textView.layer.masksToBounds = true
     }
     
-    //MARK: - UIScrollViewDelegate
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        dismissKeyboard()
+    
+    //MARK: - IBActions
+    @IBAction func addTextButtonTapped(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Add Greeting", message: nil, preferredStyle: .alert)
+        
+        let previewAction = UIAlertAction(title: "Preview", style: .default) { previewAction in
+            let textField = alert.textFields!.first! as UITextField
+            if let text = textField.text {
+                let previewVC = self.storyboard?.instantiateViewController(withIdentifier: "PreviewVC") as! PreviewController
+                if let image = self.image {
+                    if let newImage = self.textToImage(text: text, image: image) {
+                        previewVC.previewImage = newImage
+                        self.navigationController?.pushViewController(previewVC, animated: true)
+                    }
+                }
+                
+            }
+        }
+        
+        previewAction.isEnabled = false
+        
+        alert.addTextField() { textField in
+            textField.placeholder = "Greetings from Mars"
+            NotificationCenter.default.addObserver(forName: Notification.Name.UITextFieldTextDidChange, object: textField, queue: OperationQueue.main, using: { (notification) in
+                previewAction.isEnabled = textField.text != nil
+            })
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(cancelAction)
+        alert.addAction(previewAction)
+        
+        present(alert, animated: true, completion: nil)
     }
     
     //MARK: - Navigation
-    func previewImage() {
-        let previewVC = storyboard?.instantiateViewController(withIdentifier: "PreviewVC") as! PreviewController
-        if let image = self.image {
-            if let newImage = textToImage(text: self.textView.text, image: image) {
-                previewVC.previewImage = newImage
-                self.navigationController?.pushViewController(previewVC, animated: true)
-            }
-        }
-    }
-    
-    //MARK: - Helpers
-    func dismissKeyboard() {
-        textView.resignFirstResponder()
-    }
     
     fileprivate func textToImage(text: String?, image: UIImage?) -> UIImage? {
         guard let text = text, let image = image else { return nil }
         
         let textColor = UIColor.white
-        guard let font = UIFont(name: "Zapfino", size: 25) else { return nil }
+        guard let font = UIFont(name: "Zapfino", size: 20) else { return nil }
         
         UIGraphicsBeginImageContext(image.size)
         
@@ -105,7 +103,7 @@ class MarsDetailViewController: UIViewController, UIScrollViewDelegate, UIGestur
         
         image.draw(in: CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height))
             
-        let rect = CGRect(x: 50, y: image.size.height - 100, width: image.size.width, height: image.size.height)
+        let rect = CGRect(x: 10, y: image.size.height - 100, width: image.size.width, height: image.size.height)
         
         text.draw(in: rect, withAttributes: fontAttributes)
         
