@@ -22,7 +22,6 @@
 		78872AB21DDCC1FF00038A55 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78872AB11DDCC1FF00038A55 /* Nuke.framework */; };
 		78872AB41DDCC95600038A55 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78872AB31DDCC95600038A55 /* Endpoint.swift */; };
 		78915D131DEC95BA00CFF098 /* PreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78915D121DEC95BA00CFF098 /* PreviewController.swift */; };
-		78AD7D0E1DEF299B00135AAA /* KRAlertController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78AD7D0C1DEF299B00135AAA /* KRAlertController.framework */; };
 		78AD7D0F1DEF299B00135AAA /* KRProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78AD7D0D1DEF299B00135AAA /* KRProgressHUD.framework */; };
 		78AD7D111DEF2E2200135AAA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AD7D101DEF2E2200135AAA /* MainViewController.swift */; };
 		78DECF551DEAFF62008CBF28 /* MarsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DECF541DEAFF62008CBF28 /* MarsDetailViewController.swift */; };
@@ -65,7 +64,6 @@
 		78872AB11DDCC1FF00038A55 /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nuke.framework; path = Carthage/Build/iOS/Nuke.framework; sourceTree = "<group>"; };
 		78872AB31DDCC95600038A55 /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		78915D121DEC95BA00CFF098 /* PreviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewController.swift; sourceTree = "<group>"; };
-		78AD7D0C1DEF299B00135AAA /* KRAlertController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KRAlertController.framework; path = Carthage/Build/iOS/KRAlertController.framework; sourceTree = "<group>"; };
 		78AD7D0D1DEF299B00135AAA /* KRProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KRProgressHUD.framework; path = Carthage/Build/iOS/KRProgressHUD.framework; sourceTree = "<group>"; };
 		78AD7D101DEF2E2200135AAA /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		78DECF541DEAFF62008CBF28 /* MarsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarsDetailViewController.swift; sourceTree = "<group>"; };
@@ -85,7 +83,6 @@
 			files = (
 				7826924A1DE4C2DF00E4FBDC /* Contacts.framework in Frameworks */,
 				78872AB21DDCC1FF00038A55 /* Nuke.framework in Frameworks */,
-				78AD7D0E1DEF299B00135AAA /* KRAlertController.framework in Frameworks */,
 				78AD7D0F1DEF299B00135AAA /* KRProgressHUD.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -158,7 +155,6 @@
 		78872AB01DDCC1FF00038A55 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				78AD7D0C1DEF299B00135AAA /* KRAlertController.framework */,
 				78AD7D0D1DEF299B00135AAA /* KRProgressHUD.framework */,
 				782692491DE4C2DF00E4FBDC /* Contacts.framework */,
 				78872AB11DDCC1FF00038A55 /* Nuke.framework */,
@@ -318,7 +314,6 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Nuke.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/KRAlertController.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/KRProgressHUD.framework",
 			);
 			outputPaths = (

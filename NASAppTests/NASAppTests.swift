@@ -59,25 +59,25 @@ class NASAppTests: XCTestCase {
         }
     }
     
-    //MARK: - Test contact search
-    func testWorkingContactSearch() {
-        contactManager.searchContact(with: correctFakeContactName) { contacts, _ in
-            XCTAssertNotNil(contacts != nil, "The specified contact's name is incorrect")
-        }
-    }
-    
-    func testFailingContactSearch() {
-        contactManager.searchContact(with: incorrectFakeContactName) { contacts, _ in
-            XCTAssertNil(contacts == nil, "The specified contact's name is correct")
-        }
-    }
-    
-    //MARK: - Test download of image for contact
+    //MARK: - Test image download for contact
     func testImageDownloadForContact() {
         if let contact = correctCNContact {
             photoManager.fetchImage(for: contact) { imageString, _ in
                 XCTAssertNotNil(imageString != nil, "The specified contact was not found")
             }
+        }
+    }
+    
+    //MARK: - Test image download for address
+    func testImageDownloadForAddress() {
+        photoManager.fetchImage(for: correctFakeAddress) { photo, _ in
+            XCTAssertNotNil(photo != nil, "No image could be downloaded")
+        }
+    }
+    
+    func testFailingImageDownloadForAddress() {
+        photoManager.fetchImage(for: incorrectFakeAddress) { photo, _ in
+            XCTAssertNil(photo == nil, "The address provided was correct")
         }
     }
     

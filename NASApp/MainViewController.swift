@@ -8,6 +8,7 @@
 
 import UIKit
 import ContactsUI
+import KRProgressHUD
 
 class MainViewController: UIViewController, CNContactPickerDelegate {
     
@@ -38,11 +39,18 @@ class MainViewController: UIViewController, CNContactPickerDelegate {
             let searchAction = UIAlertAction(title: "Search", style: .default) { searchAction in
                 let textField = alert.textFields!.first! as UITextField
                 if let text = textField.text {
-                    self.photoManager.fetchEarthImage(for: text) { photo, error in
-                        guard let photo = photo else { AlertManager.displayAlert(with: "Error", message: "Couldn't load photo for this location", in: self); return }
+                    KRProgressHUD.show()
+                    self.photoManager.fetchImage(for: text) { photo, error in
+                        guard let photo = photo else {
+                            KRProgressHUD.dismiss()
+                            AlertManager.displayAlert(with: "Error", message: "Couldn't load photo for this location", in: self)
+                            return
+                        }
                         
                         let imageVC = self.storyboard?.instantiateViewController(withIdentifier: "ImageViewController") as! ImageViewController
                         imageVC.photo = photo
+                        
+                        KRProgressHUD.dismiss()
                         
                         self.navigationController?.pushViewController(imageVC, animated: true)
                     }
@@ -57,24 +65,37 @@ class MainViewController: UIViewController, CNContactPickerDelegate {
                 })
             })
             
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            
+            alert.addAction(cancelAction)
             alert.addAction(searchAction)
             
             self.present(alert, animated: true, completion: nil)
         }
         
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
         alert.addAction(contactAction)
         alert.addAction(addressAction)
+        alert.addAction(cancelAction)
         
         self.present(alert, animated: true, completion: nil)
     }
     
     //MARK: - CNContactPickerDelegate
     func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
+        KRProgressHUD.show()
         photoManager.fetchImage(for: contact) { photo, error in
-            guard let photo = photo else { return }
+            guard let photo = photo else {
+                KRProgressHUD.dismiss()
+                AlertManager.displayAlert(with: "Error", message: "Error fetching photos", in: self)
+                return
+            }
             
             let imageVC = self.storyboard?.instantiateViewController(withIdentifier: "ImageViewController") as! ImageViewController
             imageVC.photo = photo
+            
+            KRProgressHUD.dismiss()
             
             self.navigationController?.pushViewController(imageVC, animated: true)
         }

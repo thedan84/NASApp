@@ -35,11 +35,9 @@ class MarsImagesViewController: UICollectionViewController {
 
     // MARK: UICollectionViewDataSource
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if let photos = marsPhotos {
-            return photos.count
-        }
-        
-        return 0
+        guard let photos = marsPhotos else { return 0 }
+
+        return photos.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

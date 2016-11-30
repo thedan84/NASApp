@@ -18,6 +18,8 @@ struct AlertManager {
         
         alert.addAction(okAction)
         
-        viewController.present(alert, animated: true, completion: nil)
+        OperationQueue.main.addOperation {
+            viewController.present(alert, animated: true, completion: nil)
+        }
     }
 }

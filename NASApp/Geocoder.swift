@@ -17,10 +17,10 @@ struct Geocoder {
     //MARK: - Geocode address for given address string
     func geocodeAddress(for addressString: String, completion: @escaping (CLLocation?, Error?) -> Void) {
         geoCoder.geocodeAddressString(addressString) { placemarks, error in
-            if error != nil {
-                completion(nil, error)
-            } else if let placemark = placemarks?.first, let location = placemark.location {
+            if let placemark = placemarks?.first, let location = placemark.location {
                 completion(location, nil)
+            } else {
+                completion(nil, error)
             }
         }
     }

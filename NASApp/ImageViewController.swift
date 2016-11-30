@@ -21,6 +21,5 @@ class ImageViewController: UIViewController {
         guard let photo = photo, let url = photo.imageURL else { return }
         
         Nuke.loadImage(with: url, into: imageView)
-        
     }
 }

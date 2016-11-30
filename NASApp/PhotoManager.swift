@@ -28,7 +28,10 @@ struct PhotoManager {
                             if let jsonArray = object?["photos"] as? JSONArray {
                                 var photosArray = [MarsPhoto]()
                                 for json in jsonArray {
-                                    guard let photo = MarsPhoto(json: json) else { return }
+                                    guard let photo = MarsPhoto(json: json) else {
+                                        completion(nil, nil)
+                                        return
+                                    }
                                     
                                     photosArray.append(photo)
                                 }
@@ -44,16 +47,22 @@ struct PhotoManager {
     }
     
     //MARK: - Fetch earth image for specific address
-    func fetchEarthImage(for address: String, completion: @escaping (EarthPhoto?, Error?) -> Void) {
+    func fetchImage(for address: String, completion: @escaping (EarthPhoto?, Error?) -> Void) {
         geocoder.geocodeAddress(for: address) { location, error in
             
-            guard let location = location else { return }
+            guard let location = location else {
+                completion(nil, nil)
+                return
+            }
             
             self.networkManager.request(endpoint: .earth, parameters: ["latitude": location.coordinate.latitude, "longitude": location.coordinate.longitude]) { json in
                 
                 switch json {
                 case .success(let object):
-                    guard let json = object, let image = EarthPhoto(json: json) else { return }
+                    guard let json = object, let image = EarthPhoto(json: json) else {
+                        completion(nil, nil)
+                        return
+                    }
                     
                     completion(image, nil)
                     
@@ -66,12 +75,18 @@ struct PhotoManager {
     //MARK: - Fetch earth image for specific contact
     func fetchImage(for contact: CNContact, completion: @escaping (EarthPhoto?, Error?) -> Void) {
         contactManager.searchLocation(for: contact) { location, error in
-            guard let location = location else { return }
+            guard let location = location else {
+                completion(nil, nil)
+                return
+            }
             
             self.networkManager.request(endpoint: .earth, parameters: ["latitude": location.coordinate.latitude, "longitude": location.coordinate.longitude]) { (result) in
                 switch result {
                 case .success(let object):
-                    guard let json = object, let image = EarthPhoto(json: json) else { return }
+                    guard let json = object, let image = EarthPhoto(json: json) else {
+                        completion(nil, nil)
+                        return
+                    }
                     
                     completion(image, nil)
                     

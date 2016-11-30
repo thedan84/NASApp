@@ -41,3 +41,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 }
+
+
+/*
+    ******************************************
+    ****Tools used inInstrument tests*********
+    ******************************************
+ 
+!!!!! I tested all of the following on my iPhone 6S+ !!!!!
+ 
+ - Memory Leaks
+ - System Usage
+ - Energy Log
+ - Core Animation
+ 
+*/
