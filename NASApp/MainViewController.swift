@@ -60,7 +60,7 @@ class MainViewController: UIViewController, CNContactPickerDelegate {
             
             alert.addTextField() {textField in
                 textField.placeholder = "Rome, Italy"
-                NotificationCenter.default.addObserver(forName: Notification.Name.UITextFieldTextDidChange, object: textField, queue: OperationQueue.main, using: { (notification) in
+                NotificationCenter.default.addObserver(forName: UITextField.textDidChangeNotification, object: textField, queue: OperationQueue.main, using: { (notification) in
                     searchAction.isEnabled = textField.text != nil
                 })
             }

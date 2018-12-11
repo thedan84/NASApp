@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  KRProgressHUDDemo
 //
-//  Copyright © 2016年 Krimpedance. All rights reserved.
+//  Copyright © 2016 Krimpedance. All rights reserved.
 //
 
 import UIKit
@@ -12,8 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         return true
     }
 }

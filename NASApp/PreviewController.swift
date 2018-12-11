@@ -33,7 +33,7 @@ class PreviewController: UIViewController, UINavigationControllerDelegate, MFMai
             
             guard let image = previewImage else { return }
             
-            if let imageData = UIImageJPEGRepresentation(image, 1.0) {
+            if let imageData = image.jpegData(compressionQuality: 1.0) {
                 composeVC.addAttachmentData(imageData, mimeType: "image/jpeg", fileName: "\(imageData.description)")
             }
             

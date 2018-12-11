@@ -37,7 +37,7 @@ class MarsDetailViewController: UIViewController, MFMailComposeViewControllerDel
     func configureViews() {
         if let photo = photo, let url = photo.imageURL {
             Nuke.loadImage(with: url, into: self.imageView) { response, _ in
-                if let image = response.value {
+                if let image = response?.image {
                     self.imageView.image = image
                     self.image = image
                 }
@@ -73,7 +73,7 @@ class MarsDetailViewController: UIViewController, MFMailComposeViewControllerDel
         
         alert.addTextField() { textField in
             textField.placeholder = "Greetings from Mars"
-            NotificationCenter.default.addObserver(forName: Notification.Name.UITextFieldTextDidChange, object: textField, queue: OperationQueue.main, using: { (notification) in
+            NotificationCenter.default.addObserver(forName: UITextField.textDidChangeNotification, object: textField, queue: OperationQueue.main, using: { (notification) in
                 previewAction.isEnabled = textField.text != nil
             })
         }
@@ -97,15 +97,15 @@ class MarsDetailViewController: UIViewController, MFMailComposeViewControllerDel
         UIGraphicsBeginImageContext(image.size)
         
         let fontAttributes = [
-            NSFontAttributeName: font,
-            NSForegroundColorAttributeName: textColor
+            convertFromNSAttributedStringKey(NSAttributedString.Key.font): font,
+            convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): textColor
         ]
         
         image.draw(in: CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height))
             
         let rect = CGRect(x: 10, y: image.size.height - 100, width: image.size.width, height: image.size.height)
         
-        text.draw(in: rect, withAttributes: fontAttributes)
+        text.draw(in: rect, withAttributes: convertToOptionalNSAttributedStringKeyDictionary(fontAttributes))
         
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         
@@ -113,4 +113,15 @@ class MarsDetailViewController: UIViewController, MFMailComposeViewControllerDel
         
         return newImage
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
 }

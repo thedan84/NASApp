@@ -1,2 +1,3 @@
-github "Krimpedance/KRProgressHUD" "2.2.2"
-github "kean/Nuke" "5.1"
+github "Krimpedance/KRProgressHUD" "3.4.0"
+github "kean/Nuke" "7.5.1"
+github "krimpedance/KRActivityIndicatorView" "3.0.0"

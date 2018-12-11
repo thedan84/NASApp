@@ -1,9 +1,0 @@
-{
-  "commitish" : "2.2.2",
-  "iOS" : [
-    {
-      "hash" : "a118f04222e9dcbbb3ea3054cd5f2d6e2d1a5d45c6120f0f831e6b6b6e1ca3a8",
-      "name" : "KRProgressHUD"
-    }
-  ]
-}
