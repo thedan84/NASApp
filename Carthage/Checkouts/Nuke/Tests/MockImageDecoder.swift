@@ -1,6 +1,6 @@
 // The MIT License (MIT)
 //
-// Copyright (c) 2015-2018 Alexander Grebenyuk (github.com/kean).
+// Copyright (c) 2015-2019 Alexander Grebenyuk (github.com/kean).
 
 import Foundation
 import Nuke
@@ -22,5 +22,17 @@ class MockImageDecoder: ImageDecoding {
 
     func decode(data: Data, isFinal: Bool) -> Image? {
         return decoder.decode(data: data, isFinal: isFinal)
+    }
+}
+
+class MockAnonymousImageDecoder: ImageDecoding {
+    let closure: (Data, Bool) -> Image?
+
+    init(_ closure: @escaping (Data, Bool) -> Image?) {
+        self.closure = closure
+    }
+
+    func decode(data: Data, isFinal: Bool) -> Image? {
+        return closure(data, isFinal)
     }
 }

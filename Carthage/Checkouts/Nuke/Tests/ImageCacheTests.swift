@@ -1,6 +1,6 @@
 // The MIT License (MIT)
 //
-// Copyright (c) 2015-2018 Alexander Grebenyuk (github.com/kean).
+// Copyright (c) 2015-2019 Alexander Grebenyuk (github.com/kean).
 
 import XCTest
 @testable import Nuke
@@ -269,11 +269,7 @@ class ImageCacheTests: XCTestCase {
         cache[Test.request] = Image()
 
         // When
-        #if swift(>=4.2)
         NotificationCenter.default.post(name: UIApplication.didReceiveMemoryWarningNotification, object: nil)
-        #else
-        NotificationCenter.default.post(name: NSNotification.Name.UIApplicationDidReceiveMemoryWarning, object: nil)
-        #endif
 
         // Then
         XCTAssertNil(cache[Test.request])
@@ -290,11 +286,7 @@ class ImageCacheTests: XCTestCase {
         XCTAssertEqual(cache.totalCount, 10)
 
         // When
-        #if swift(>=4.2)
         NotificationCenter.default.post(name: UIApplication.didEnterBackgroundNotification, object: nil)
-        #else
-        NotificationCenter.default.post(name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
-        #endif
 
         // Then
         XCTAssertEqual(cache.totalCount, 1)
@@ -313,11 +305,7 @@ class ImageCacheTests: XCTestCase {
         XCTAssertEqual(cache.totalCount, 10)
 
         // When
-        #if swift(>=4.2)
         NotificationCenter.default.post(name: UIApplication.didEnterBackgroundNotification, object: nil)
-        #else
-        NotificationCenter.default.post(name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
-        #endif
 
         // Then
         XCTAssertEqual(cache.totalCount, 1)
@@ -326,7 +314,7 @@ class ImageCacheTests: XCTestCase {
 }
 
 class InternalCacheTTLTests: XCTestCase {
-    let cache = _Cache<Int, Int>(costLimit: 1000, countLimit: 1000)
+    let cache = Cache<Int, Int>(costLimit: 1000, countLimit: 1000)
 
     // MARK: TTL
 

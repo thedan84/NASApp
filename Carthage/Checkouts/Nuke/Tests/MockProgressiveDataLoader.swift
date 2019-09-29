@@ -1,6 +1,6 @@
 // The MIT License (MIT)
 //
-// Copyright (c) 2015-2018 Alexander Grebenyuk (github.com/kean).
+// Copyright (c) 2015-2019 Alexander Grebenyuk (github.com/kean).
 
 import Foundation
 import Nuke
@@ -22,12 +22,7 @@ final class MockProgressiveDataLoader: DataLoading {
     private var completion: (Error?) -> Void = { _ in }
 
     init() {
-        self.urlResponse = HTTPURLResponse(
-            url: Test.url,
-            mimeType: "jpeg",
-            expectedContentLength: data.count,
-            textEncodingName: nil
-        )
+        self.urlResponse = HTTPURLResponse(url: Test.url, statusCode: 200, httpVersion: "HTTP/1.1", headerFields: ["Content-Length": "\(data.count)"])!
         self.chunks = Array(_createChunks(for: data, size: data.count / 3))
     }
 

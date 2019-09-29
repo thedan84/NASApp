@@ -36,12 +36,13 @@ class MarsDetailViewController: UIViewController, MFMailComposeViewControllerDel
     //MARK: - View configuration
     func configureViews() {
         if let photo = photo, let url = photo.imageURL {
-            Nuke.loadImage(with: url, into: self.imageView) { response, _ in
-                if let image = response?.image {
-                    self.imageView.image = image
-                    self.image = image
-                }
-            }
+            Nuke.loadImage(with: url, into: self.imageView)
+//            Nuke.loadImage(with: url, into: self.imageView) { response, _ in
+//                if let image = response?.image {
+//                    self.imageView.image = image
+//                    self.image = image
+//                }
+//            }
         }
         
         self.imageView.layer.cornerRadius = 20

@@ -1,6 +1,6 @@
 // The MIT License (MIT)
 //
-// Copyright (c) 2015-2018 Alexander Grebenyuk (github.com/kean).
+// Copyright (c) 2015-2019 Alexander Grebenyuk (github.com/kean).
 
 import XCTest
 @testable import Nuke
@@ -46,9 +46,12 @@ class ImageViewIntegrationTests: XCTestCase {
     }
 
     func testImageLoadedWithURL() {
+
+        Nuke.loadImage(with: url, into: imageView)
+
         // When
         let expectation = self.expectation(description: "Image loaded")
-        Nuke.loadImage(with: url, into: imageView) { response, _ in
+        Nuke.loadImage(with: url, into: imageView) { _ in
             expectation.fulfill()
         }
         wait()

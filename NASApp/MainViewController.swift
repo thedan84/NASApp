@@ -8,7 +8,7 @@
 
 import UIKit
 import ContactsUI
-import KRProgressHUD
+//import KRProgressHUD
 
 class MainViewController: UIViewController, CNContactPickerDelegate {
     
@@ -39,10 +39,10 @@ class MainViewController: UIViewController, CNContactPickerDelegate {
             let searchAction = UIAlertAction(title: "Search", style: .default) { searchAction in
                 let textField = alert.textFields!.first! as UITextField
                 if let text = textField.text {
-                    KRProgressHUD.show()
+//                    KRProgressHUD.show()
                     self.photoManager.fetchImage(for: text) { photo, error in
                         guard let photo = photo else {
-                            KRProgressHUD.dismiss()
+//                            KRProgressHUD.dismiss()
                             AlertManager.displayAlert(with: "Error", message: "Couldn't load photo for this location", in: self)
                             return
                         }
@@ -50,7 +50,7 @@ class MainViewController: UIViewController, CNContactPickerDelegate {
                         let imageVC = self.storyboard?.instantiateViewController(withIdentifier: "ImageViewController") as! ImageViewController
                         imageVC.photo = photo
                         
-                        KRProgressHUD.dismiss()
+//                        KRProgressHUD.dismiss()
                         
                         self.navigationController?.pushViewController(imageVC, animated: true)
                     }
@@ -84,10 +84,10 @@ class MainViewController: UIViewController, CNContactPickerDelegate {
     
     //MARK: - CNContactPickerDelegate
     func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
-        KRProgressHUD.show()
+//        KRProgressHUD.show()
         photoManager.fetchImage(for: contact) { photo, error in
             guard let photo = photo else {
-                KRProgressHUD.dismiss()
+//                KRProgressHUD.dismiss()
                 AlertManager.displayAlert(with: "Error", message: "Error fetching photos", in: self)
                 return
             }
@@ -95,7 +95,7 @@ class MainViewController: UIViewController, CNContactPickerDelegate {
             let imageVC = self.storyboard?.instantiateViewController(withIdentifier: "ImageViewController") as! ImageViewController
             imageVC.photo = photo
             
-            KRProgressHUD.dismiss()
+//            KRProgressHUD.dismiss()
             
             self.navigationController?.pushViewController(imageVC, animated: true)
         }

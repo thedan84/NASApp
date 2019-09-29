@@ -21,7 +21,6 @@
 		78872AB21DDCC1FF00038A55 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78872AB11DDCC1FF00038A55 /* Nuke.framework */; };
 		78872AB41DDCC95600038A55 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78872AB31DDCC95600038A55 /* Endpoint.swift */; };
 		78915D131DEC95BA00CFF098 /* PreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78915D121DEC95BA00CFF098 /* PreviewController.swift */; };
-		78AD7D0F1DEF299B00135AAA /* KRProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78AD7D0D1DEF299B00135AAA /* KRProgressHUD.framework */; };
 		78AD7D111DEF2E2200135AAA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AD7D101DEF2E2200135AAA /* MainViewController.swift */; };
 		78DECF551DEAFF62008CBF28 /* MarsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DECF541DEAFF62008CBF28 /* MarsDetailViewController.swift */; };
 		78DECF5A1DEAFFF6008CBF28 /* MarsPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DECF591DEAFFF6008CBF28 /* MarsPhoto.swift */; };
@@ -62,7 +61,6 @@
 		78872AB11DDCC1FF00038A55 /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nuke.framework; path = Carthage/Build/iOS/Nuke.framework; sourceTree = "<group>"; };
 		78872AB31DDCC95600038A55 /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		78915D121DEC95BA00CFF098 /* PreviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewController.swift; sourceTree = "<group>"; };
-		78AD7D0D1DEF299B00135AAA /* KRProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KRProgressHUD.framework; path = Carthage/Build/iOS/KRProgressHUD.framework; sourceTree = "<group>"; };
 		78AD7D101DEF2E2200135AAA /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		78DECF541DEAFF62008CBF28 /* MarsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarsDetailViewController.swift; sourceTree = "<group>"; };
 		78DECF591DEAFFF6008CBF28 /* MarsPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarsPhoto.swift; sourceTree = "<group>"; };
@@ -81,7 +79,6 @@
 			files = (
 				7826924A1DE4C2DF00E4FBDC /* Contacts.framework in Frameworks */,
 				78872AB21DDCC1FF00038A55 /* Nuke.framework in Frameworks */,
-				78AD7D0F1DEF299B00135AAA /* KRProgressHUD.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,7 +149,6 @@
 		78872AB01DDCC1FF00038A55 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				78AD7D0D1DEF299B00135AAA /* KRProgressHUD.framework */,
 				782692491DE4C2DF00E4FBDC /* Contacts.framework */,
 				78872AB11DDCC1FF00038A55 /* Nuke.framework */,
 			);
@@ -247,19 +243,19 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = "Dennis Parussini";
 				TargetAttributes = {
 					78872A871DDCBF3C00038A55 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = DEYT8Z7L38;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1100;
 						ProvisioningStyle = Automatic;
 					};
 					78872A9B1DDCBF3C00038A55 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = DEYT8Z7L38;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1100;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 78872A871DDCBF3C00038A55;
 					};
@@ -267,7 +263,7 @@
 			};
 			buildConfigurationList = 78872A831DDCBF3C00038A55 /* Build configuration list for PBXProject "NASApp" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -312,13 +308,12 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Nuke.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/KRProgressHUD.framework",
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -389,6 +384,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -448,6 +444,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -510,7 +507,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = me.thedan84.NASApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -529,7 +526,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = me.thedan84.NASApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -545,7 +542,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = me.thedan84.NASAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NASApp.app/NASApp";
 			};
 			name = Debug;
@@ -561,7 +558,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = me.thedan84.NASAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NASApp.app/NASApp";
 			};
 			name = Release;

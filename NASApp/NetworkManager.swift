@@ -17,6 +17,8 @@ struct NetworkManager {
     func request(endpoint: Endpoint, parameters: JSON?, completion: @escaping (Result) -> Void) {
         guard let url = endpoint.urlString(with: parameters) else { return }
         
+        print(url.absoluteString)
+        
         let session = URLSession(configuration: .default)
         
         let request = URLRequest(url: url)

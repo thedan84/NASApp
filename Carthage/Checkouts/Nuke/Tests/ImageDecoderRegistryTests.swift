@@ -1,6 +1,6 @@
 // The MIT License (MIT)
 //
-// Copyright (c) 2015-2018 Alexander Grebenyuk (github.com/kean).
+// Copyright (c) 2015-2019 Alexander Grebenyuk (github.com/kean).
 
 import XCTest
 @testable import Nuke
@@ -58,7 +58,7 @@ final class ImageDecoderRegistryTests: XCTestCase {
 private func _mockImageDecodingContext() -> ImageDecodingContext {
     return ImageDecodingContext(
         request: Test.request,
-        urlResponse: nil,
-        data: Test.data(name: "fixture", extension: "jpeg")
+        data: Test.data(name: "fixture", extension: "jpeg"),
+        urlResponse: nil
     )
 }

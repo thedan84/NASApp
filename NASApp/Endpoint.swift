@@ -35,7 +35,7 @@ enum Endpoint {
         case .earth:
             guard let params = parameters, let latitude = params["latitude"] as? Double, let longitude = params["longitude"] as? Double else { return nil }
     
-            return URL(string: baseURL + "planetary/earth/imagery?api_key=\(apiKey)&lat=\(latitude)&lon=\(longitude)")
+            return URL(string: baseURL + "planetary/earth/imagery/?api_key=\(apiKey)&lat=\(latitude)&lon=\(longitude)")
         }
     }
 }
